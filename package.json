@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/laneelliott/mocp_me/issues"
   },
-  "homepage": "https://github.com/laneelliott/mocp_me#readme"
+  "homepage": "https://github.com/laneelliott/mocp_me#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
