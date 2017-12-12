@@ -1,0 +1,28 @@
+{
+  "name": "mocp_me",
+  "version": "1.0.0",
+  "description": "Application for Museum of Contemporary Photography that reverse image searches the museums database and allows users to interact with the museums works",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laneelliott/mocp_me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laneelliott/mocp_me/issues"
+  },
+  "homepage": "https://github.com/laneelliott/mocp_me#readme",
+  "dependencies": {
+    "@google-cloud/vision": "^0.13.0",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "mysql2": "^1.5.1",
+    "path": "^0.12.7",
+    "sequelize": "^4.28.0"
+  }
+}
