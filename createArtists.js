@@ -43,7 +43,7 @@ function artistParse(filepath) {
 };
 
 function writeQuery(name, fpath, table) {
-	if (name !== 'high-res' && name !== 'Thumbs.db' && name !== 'high_res' && name !== 'high res' && name !== '$RECYCLE.BIN') {
+	if (name !== 'high-res' && name !== 'Thumbs.db' && name !== 'high_res' && name !== 'high res' && name !== '$RECYCLE.BIN' && name !== 'zzz_All_Photos') {
 		console.log('name: ' + name + '\n path: '+fpath);
 		artistNumber++;
 		var query = connection.query(

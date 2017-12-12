@@ -35,32 +35,9 @@ function readDB(){
 			// Do Nothing
 		}
 	});
-	console.log(photoNumber + " | images found");
 }
 
 function photoParse(filename, filepath) {
-	if ( validPhoto(filepath) ) {
-		console.log('photo parse')
-		writeQuery(filename, filepath, 'photos');
-	}
-};
-
-
-function writeQuery(name, fpath, table) {
-	console.log(name + '\n' + fpath);
-	var query = connection.query(
-		"INSERT INTO "+table+" SET ?",
-		{
-			name: name,
-			path: fpath
-		},
-		function(err, res) {
-		}
-		);
-	console.log(query.sql);
-};
-
-function validPhoto(filepath) {
 	var paths = filepath.split('/');
 	for (var i = 1; i < paths.length-1; i++ ){	
 	var query = connection.query("SELECT * FROM artists WHERE ?",
@@ -71,7 +48,7 @@ function validPhoto(filepath) {
 			if( res.length !== 0 ){
 				photoNumber++;
 				console.log('matched_id:'+res[0].id + ' | number: '+ photoNumber);
-				logger.write("INSERT INTO `mocp_db`.`photos` (`name`, `path`, `artist_id`) VALUES ('"+paths[paths.length-1]+"', '"+filepath+"', '"+res[0].id+"');\n");
+				logger.write("INSERT INTO `mocp_db`.`photos` (`name`, `path`, `artist_id`) VALUES ('"+filename+"', '"+filepath+"', '"+res[0].id+"');\n");
 				return true;
 			} else {
 				//return false;
@@ -79,6 +56,25 @@ function validPhoto(filepath) {
 			//console.log(res.length);
 		});
 	}
+};
+
+
+// function writeQuery(name, fpath, table) {
+// 	console.log(name + '\n' + fpath);
+// 	var query = connection.query(
+// 		"INSERT INTO "+table+" SET ?",
+// 		{
+// 			name: name,
+// 			path: fpath
+// 		},
+// 		function(err, res) {
+// 		}
+// 		);
+// 	console.log(query.sql);
+// };
+
+function validPhoto(filepath) {
+
 }
 
 
