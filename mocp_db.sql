@@ -25,6 +25,6 @@ CREATE TABLE photos  (
 
 /* 
 
-SELECT * FROM artists;
+SELECT * FROM mocp_db.artists;
 
-SELECT * FROM photos;
+SELECT * FROM mocp_db.photos;
