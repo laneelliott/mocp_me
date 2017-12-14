@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "starwars",
+    "password": "Suntan07",
+    "database": "mocp_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

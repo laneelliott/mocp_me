@@ -1,5 +1,4 @@
 // Dependencies
-// =============================================================
 
 // Sequelize (capital) references the standard library
 var Sequelize = require("sequelize");
@@ -9,16 +8,19 @@ var sequelize = require("../config/connection.js");
 // Creates a "Photo" model that matches up with DB
 var Photos = sequelize.define("photos", {
   // the Photo's id gets saved as an integer
-  id: Sequelize.INTEGER,
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true
+  },
   // the name of the Photo (a string)
   name: Sequelize.STRING,
   // the Photo's file path (a string)
   path: Sequelize.STRING,
   // the Photo's URL aka web path (a string)
-  webpath: Sequelize.STRING,
+  web_path: Sequelize.STRING,
   // and the artist id (an integer)
-  artistid: Sequelize.INTEGER
-};
+  artist_id: Sequelize.INTEGER
+});
 
 // Syncs with DB
 Photos.sync();

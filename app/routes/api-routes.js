@@ -4,25 +4,26 @@
 
 // Dependencies
 // =============================================================
-var Character = require("../models/character.js");
+var Photos = require("../models/Photos.js");
+//var Tags = require("../models/Tags.js")
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-  // Search for Specific Character (or all characters) then provides JSON
-  app.get("/api/:characters?", function(req, res) {
+  // Search for Specific Photos (or all Photoss) then provides JSON
+  app.get("/api/:Photos?", function(req, res) {
 
-    // If the user provides a specific character in the URL...
-    if (req.params.characters) {
+    // If the user provides a specific Photos in the URL...
+    if (req.params.Photoss) {
 
-      // Then display the JSON for ONLY that character.
+      // Then display the JSON for ONLY that Photos.
       // (Note how we're using the ORM here to run our searches)
-      Character.findOne({
+      Photos.findOne({
         where: {
-          routeName: req.params.characters
+          routeName: req.params.Photoss
         }
-        // WHERE routename = ?, [req.params.characters]
+        // WHERE routename = ?, [req.params.Photoss]
       }).then(function(result) {
         console.log(result);
         return res.json(result);
@@ -31,9 +32,9 @@ module.exports = function(app) {
 
     // Otherwise...
     else {
-      // Otherwise display the data for all of the characters.
+      // Otherwise display the data for all of the Photoss.
       // (Note how we're using Sequelize here to run our searches)
-      Character.findAll({})
+      Photos.findAll({})
         .then(function(result) {
           return res.json(result);
         });
@@ -41,22 +42,22 @@ module.exports = function(app) {
 
   });
 
-  // If a user sends data to add a new character...
+  // If a user sends data to add a new Photos...
   app.post("/api/new", function(req, res) {
 
     // Take the request...
-    var character = req.body;
+    var Photos = req.body;
 
     // Create a routeName
-    var routeName = character.name.replace(/\s+/g, "").toLowerCase();
+    var routeName = Photos.name.replace(/\s+/g, "").toLowerCase();
 
-    // Then add the character to the database using sequelize
-    Character.create({
+    // Then add the Photos to the database using sequelize
+    Photos.create({
       routeName: routeName,
-      name: character.name,
-      role: character.role,
-      age: character.age,
-      forcePoints: character.forcePoints
+      name: Photos.name,
+      role: Photos.role,
+      age: Photos.age,
+      forcePoints: Photos.forcePoints
     });
 
   });
