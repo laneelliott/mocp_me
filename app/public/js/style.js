@@ -130,10 +130,33 @@ if (intro === true){
 }
 
 // ~~~~~~~~~~~~~~~ on scroll events for #upload ~~~~~~~~~~~~~~~
-if (intro === false){
-	$(window).on('scroll',function() {
-		var y_scroll_pos = window.pageYOffset;
-	});
+function onScrollForUpload(){
+	if (intro === false){
+		$(window).on('scroll',function() {
+			var y_scroll_pos = window.pageYOffset;
+
+			var navbarAnimationTrigger = ($(".navbar").height() /3);
+			if (y_scroll_pos > navbarAnimationTrigger){
+				$(".navbar-logo").addClass("transform-left");
+				$(".navbar-options").addClass("exit-right");
+				$(".navbar-options").addClass("exit-right");
+				$(".partial-navbar-logo").show();
+			}
+			if (y_scroll_pos < navbarAnimationTrigger){
+				$(".navbar-logo").removeClass("transform-left");
+				$(".navbar-options").removeClass("exit-right");
+				$(".partial-navbar-logo").hide();
+			}
+			if ($(window).width() < 753){
+				if (y_scroll_pos > navbarAnimationTrigger +120){
+					$(".partial-navbar-logo").addClass("exit-right");
+				}
+			}
+			if (y_scroll_pos < navbarAnimationTrigger +120){
+				$(".partial-navbar-logo").removeClass("exit-right");
+			}
+		});
+	}
 }
 
 
@@ -141,21 +164,20 @@ function uploadFunction(){
 	$(".loader").hide();
 	$(".main-return").removeClass("hide");
 	resizeMainReturn();
+	onScrollForUpload();
 }
 
-if (trigger === false){
-	$("#file-button").on("click", function(){
-		intro = false;
-		$(".yellow-background-circle").css("background-color", "#E5B616");
-		$(".start-text").addClass("hide");
-		// $("#fileInput").change(function(){
-				$("#intro").hide();
-				$("#upload").show();
-			setTimeout(function(){
-				uploadFunction();
-			},3000);
-		// });
-	});
-}
+$("#file-button").on("click", function(){
+	intro = false;
+	$(".yellow-background-circle").css("background-color", "#E5B616");
+	$(".start-text").addClass("hide");
+	// $("#fileInput").change(function(){
+			$("#intro").hide();
+			$("#upload").show();
+		setTimeout(function(){
+			uploadFunction();
+		},3000);
+	// });
+});
 
 
