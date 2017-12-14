@@ -17,7 +17,8 @@ DROP TABLE IF EXISTS photos;
 CREATE TABLE photos  (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
-  path VARCHAR(255) NOT NULL,
+  path VARCHAR(300) NOT NULL,
+  web_path VARCHAR(300) NOT NULL,
   artist_id INT,
   PRIMARY KEY (id)
 );

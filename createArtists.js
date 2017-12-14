@@ -43,7 +43,7 @@ function artistParse(filepath) {
 };
 
 function writeQuery(name, fpath, table) {
-	if (name !== 'high-res' && name !== 'Thumbs.db' && name !== 'high_res' && name !== 'high res' && name !== '$RECYCLE.BIN' && name !== 'zzz_All_Photos') {
+	if (name !== 'high-res' && name !== 'Thumbs.db' && name !== 'high_res' && name !== 'high res' && name !== '$RECYCLE.BIN' && name !== 'MOCP_IMAGES' && name !== '.Trashes' && name !== '.fseventsd' && name !== '.Spotlight-V100') {
 		console.log('name: ' + name + '\n path: '+fpath);
 		artistNumber++;
 		var query = connection.query(

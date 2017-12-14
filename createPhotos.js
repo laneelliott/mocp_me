@@ -30,7 +30,12 @@ connection.connect(function(err) {
 function readDB(){
 	fs.recurseSync('/Volumes/MOCP_AI', ['**/*.jpg'], function(filepath, absolute, filename) {  
 		if (filename) {
-		  	photoParse(filename, filepath);
+			if (filepath.indexOf('MOCP_IMAGES') === -1){
+				photoParse(filename, filepath);
+			} else {
+				console.log('Image was found in MOCP_IMAGES');
+			}
+		  	
 		} else {
 			// Do Nothing
 		}
@@ -48,7 +53,7 @@ function photoParse(filename, filepath) {
 			if( res.length !== 0 ){
 				photoNumber++;
 				console.log('matched_id:'+res[0].id + ' | number: '+ photoNumber);
-				logger.write("INSERT INTO `mocp_db`.`photos` (`name`, `path`, `artist_id`) VALUES ('"+filename+"', '"+filepath+"', '"+res[0].id+"');\n");
+				logger.write("INSERT INTO `mocp_db`.`photos` (`name`, `path`, `web_path`, `artist_id`) VALUES ('"+filename+"', '"+filepath+"', '"+'https://storage.googleapis.com/mocp_images/MOCP_IMAGES/'+filename+"', '"+res[0].id+"');\n");
 				return true;
 			} else {
 				//return false;

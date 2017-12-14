@@ -19,10 +19,13 @@
   },
   "homepage": "https://github.com/laneelliott/mocp_me#readme",
   "dependencies": {
+    "@google-cloud/storage": "^1.5.1",
     "express": "^4.16.2",
     "file-system": "^2.2.2",
     "fs": "0.0.1-security",
     "fs-extra": "^4.0.3",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "natural": "^0.5.4",
+    "redis": "^2.8.0"
   }
 }
