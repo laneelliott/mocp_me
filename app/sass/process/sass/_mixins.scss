@@ -13,7 +13,7 @@
 
 @mixin imageMixin($backgroundImage, $height) {
 	background-image: url($backgroundImage);
-	margin-top:15vh;
+	margin-top:20vh;
 	margin: 5vw;
 	height: $height;
 	background-size:cover;

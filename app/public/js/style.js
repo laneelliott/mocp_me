@@ -1,7 +1,12 @@
 
 var windowWidth = $(window).width();
 var marginTotal = windowWidth - $(".rectangle").width();
+
+// this lets us know if the animation happened
 var trigger = false;
+
+// this tells us if we are on #intro or #upload
+// if intro = false, we are on #upload
 var intro = true;
 
 onloadFunction();
@@ -11,6 +16,7 @@ function onloadFunction(){
 	$(".white-line").removeClass("white-line-hide");
 }
 
+// ~~~~~~~~~~~~~~~ resizes #upload ~~~~~~~~~~~~~~~
 function resizeMainReturn(){
 	var logoHeight = $(".description-text").height();
 	$(".logo-sideways").css("height", logoHeight);
@@ -19,14 +25,19 @@ function resizeMainReturn(){
 		$(".uploaded-image").hide();
 		$(".returned-text").removeClass("parallax");
 		$(".returned-text").addClass("not-parallax-text");
+		$(".main-return").css("margin-left",60);
+		$(".main-return").css("margin-right",60);
 	} else if ($(window).width() < 753) {
 		$("#uploaded").css("overflow-x", "none");
 		$(".uploaded-image").show();
 		$(".returned-text").addClass("parallax");
 		$(".returned-text").removeClass("not-parallax-text");
+		$(".main-return").css("margin-left",0);
+		$(".main-return").css("margin-right",0);
 	}
 }
 
+// ~~~~~~~~~~~~~~~ resizes #intro ~~~~~~~~~~~~~~~
 function resizeWindows(){
 	windowWidth = $(window).width();
 	marginTotal = windowWidth - 272;
@@ -36,6 +47,7 @@ function resizeWindows(){
 }
 resizeWindows();
 
+// ~~~~~~~~~~~~~~~ resize windows when screen is resized ~~~~~~~~~~~~~~~
 $(window).on('resize', function(){
 	windowWidth = $(window).width();
 	if (intro === true){
@@ -53,6 +65,8 @@ $(window).on('resize', function(){
 	}
 });
 
+
+// ~~~~~~~~~~~~~~~ on scroll events for #intro ~~~~~~~~~~~~~~~
 if (intro === true){
 	$(window).on('scroll',function() {
 		var y_scroll_pos = window.pageYOffset;
@@ -115,6 +129,13 @@ if (intro === true){
 	});
 }
 
+// ~~~~~~~~~~~~~~~ on scroll events for #upload ~~~~~~~~~~~~~~~
+if (intro === false){
+	$(window).on('scroll',function() {
+		var y_scroll_pos = window.pageYOffset;
+	});
+}
+
 
 function uploadFunction(){
 	$(".loader").hide();
@@ -123,18 +144,17 @@ function uploadFunction(){
 }
 
 if (trigger === false){
-
 	$("#file-button").on("click", function(){
 		intro = false;
 		$(".yellow-background-circle").css("background-color", "#E5B616");
 		$(".start-text").addClass("hide");
-		$("#fileInput").change(function(){
+		// $("#fileInput").change(function(){
 				$("#intro").hide();
 				$("#upload").show();
 			setTimeout(function(){
 				uploadFunction();
 			},3000);
-		});
+		// });
 	});
 }
 
