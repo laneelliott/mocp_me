@@ -133,7 +133,7 @@ if (trigger === false){
 				$("#upload").show();
 			setTimeout(function(){
 				uploadFunction();
-			},1500);
+			},3000);
 		});
 	});
 }
