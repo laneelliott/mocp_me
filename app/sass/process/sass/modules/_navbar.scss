@@ -1,0 +1,28 @@
+
+.navbar{
+	z-index:100000000;
+	background-color: none;
+	margin-bottom:0 !important;
+	h5{
+		color:white !important;
+	}:hover{
+		color:$lightGray !important;
+	}
+	.navbar-options{
+		text-align: right;
+		right:2vw;
+		position:fixed !important;
+		.col-sm-2{
+			padding:0 !important;
+		}
+	}
+	.navbar-logo{
+		text-align: left;
+		left:2vw;
+		position:fixed !important; 
+	}
+	.col-sm-8{
+		padding-left:0;
+		padding-right:0;
+	}
+}
