@@ -15,7 +15,7 @@
 		}
 	}
 	.navbar-options{
-		transition:all .3s linear;
+		transition:all .2s linear;
 		text-align: right;
 		right:4vw;
 		position:fixed !important;
@@ -31,7 +31,7 @@
 		padding:0 !important;
 		left:4vw;
 		position:fixed !important; 
-		transition:all .4s linear;
+		transition:all .5s linear;
 	}
 	.partial-navbar-logo{
 		text-align: left;
@@ -44,7 +44,7 @@
 		padding-right:0;
 	}
 	.transform-left{
-		left: 2vw !important;
+		left: 1vw !important;
 		opacity: 0;
 	}
 	.exit-left{
