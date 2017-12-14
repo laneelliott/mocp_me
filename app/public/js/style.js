@@ -123,18 +123,18 @@ function uploadFunction(){
 }
 
 if (trigger === false){
-	$(".transform-container").on("click", function(){
+
+	$("#file-button").on("click", function(){
 		intro = false;
 		$(".yellow-background-circle").css("background-color", "#E5B616");
 		$(".start-text").addClass("hide");
-		setTimeout(function(){
-			$("#intro").hide();
-			alert("upload a picture!");
-			$("#upload").show();
-		}, 500); 
-		setTimeout(function(){
-			uploadFunction();
-		},1500);
+		$("#fileInput").change(function(){
+				$("#intro").hide();
+				$("#upload").show();
+			setTimeout(function(){
+				uploadFunction();
+			},1500);
+		});
 	});
 }
 
