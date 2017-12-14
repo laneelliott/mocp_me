@@ -11,14 +11,6 @@
   }
 }
 
-@mixin imageMixin($backgroundImage, $height) {
-	background-image: url($backgroundImage);
-	margin-top:20vh;
-	margin: 5vw;
-	height: $height;
-	background-size:cover;
-}
-
 // @mixin imagegrid($qty, $margin) {
 //   width: ((100% - (($qty - 1) * $margin))/$qty);
 //   &:nth-child(n) {

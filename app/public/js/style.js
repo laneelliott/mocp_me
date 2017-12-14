@@ -19,7 +19,10 @@ function onloadFunction(){
 // ~~~~~~~~~~~~~~~ resizes #upload ~~~~~~~~~~~~~~~
 function resizeMainReturn(){
 	var logoHeight = $(".description-text").height();
+	var imageHeight = $(".uploaded-image").height();
 	$(".logo-sideways").css("height", logoHeight);
+	$(".description").css("margin-top", (imageHeight-logoHeight)/2);
+	$(".description").css("margin-bottom", (imageHeight-logoHeight)/2);
 
 	if ($(window).width() > 753){
 		$(".uploaded-image").hide();

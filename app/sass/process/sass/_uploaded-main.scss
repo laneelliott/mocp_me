@@ -5,11 +5,9 @@
 	height:100vh;
 	padding-bottom:0;
 	.description{
-		margin-top: 25vh;
 		padding-left: 5vw !important;
 		padding-right: 5vw !important;
 		padding-top:0;
-		padding-bottom:30vh;
 		.logo-sideways{
 			height:300px;
 		}
@@ -78,10 +76,46 @@
 	}
 }
 
-.mocp-image-one{
-	@include imageMixin("../images/mocp-image-one.jpg", 70vh);
+.mocp-returned-images{
+	padding-top:10vh; 
+	padding-bottom:10vh;
+	.image-one-container{
+		padding-left:0 !important;
+		padding-right:0 !important;
+	}
+	.image-two-container{
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		.mocp-image-two{
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+	}
+	.text{
+		margin-top:15px;
+		.mocp-rank{
+			padding-right: 0 !important; 
+			h1{
+				color: white !important;
+				padding-top:0 !important; 
+				margin:0 !important;
+			}
+		}
+		h5{
+			margin-top: 0 !important; 
+			color: $darkGray !important;
+		}
+		.mocp-description{
+			padding:0; 
+		}
+	}
 }
-.mocp-image-two{
-	@include imageMixin("../images/mocp-image-two.jpg", 35vh);
-}
+
+
+
+
+
+
+
+
 
