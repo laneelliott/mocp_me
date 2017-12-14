@@ -1,0 +1,46 @@
+
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin imageMixin($backgroundImage, $height) {
+	background-image: url($backgroundImage);
+	margin-top:15vh;
+	margin: 5vw;
+	height: $height;
+	background-size:cover;
+}
+
+// @mixin imagegrid($qty, $margin) {
+//   width: ((100% - (($qty - 1) * $margin))/$qty);
+//   &:nth-child(n) {
+//     margin-right: $margin;
+//     margin-bottom: $margin;
+//   }
+//   &:nth-child(#{$qty}n) {
+//     margin-right: 0;
+//     margin-bottom: 0;
+//   }
+// }
+
+// @mixin break($args...) {
+//   @if length($args) == 1 {
+//     @media (min-width: nth($args, 1)) {
+//       @content;
+//     }
+//   } @else {
+//     @media (min-width: nth($args, 1))
+//       and (max-width: nth($args, 2)) {
+//       @content;
+//     }
+//   }
+
+// }
