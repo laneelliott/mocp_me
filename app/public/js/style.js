@@ -183,4 +183,17 @@ $("#file-button").on("click", function(){
 	// });
 });
 
+$(".mocp-image-one").hover(function(){
+    $(".body-text-one").removeClass("flip");
+    }, function(){
+    $(".body-text-one").addClass("flip");
+});
+$(".mocp-image-two").hover(function(){
+    $(".body-text-two").removeClass("flip");
+    }, function(){
+    $(".body-text-two").addClass("flip");
+});
+
+
+
 
