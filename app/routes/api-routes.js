@@ -11,19 +11,19 @@ var Photos = require("../models/Photos.js");
 // =============================================================
 module.exports = function(app) {
 
-  // Search for Specific Photos (or all Photoss) then provides JSON
+  // Search for Specific Photos (or all Photos) then provides JSON
   app.get("/api/:Photos?", function(req, res) {
 
     // If the user provides a specific Photos in the URL...
-    if (req.params.Photoss) {
+    if (req.params.Photos) {
 
-      // Then display the JSON for ONLY that Photos.
+      // Then display the JSON for ONLY that Photo.
       // (Note how we're using the ORM here to run our searches)
       Photos.findOne({
         where: {
-          routeName: req.params.Photoss
+          routeName: req.params.Photos
         }
-        // WHERE routename = ?, [req.params.Photoss]
+        // WHERE routename = ?, [req.params.Photos]
       }).then(function(result) {
         console.log(result);
         return res.json(result);
@@ -32,7 +32,7 @@ module.exports = function(app) {
 
     // Otherwise...
     else {
-      // Otherwise display the data for all of the Photoss.
+      // Otherwise display the data for all of the Photos.
       // (Note how we're using Sequelize here to run our searches)
       Photos.findAll({})
         .then(function(result) {
@@ -42,7 +42,7 @@ module.exports = function(app) {
 
   });
 
-  // If a user sends data to add a new Photos...
+  // If a user sends data to add a new Photo...
   app.post("/api/new", function(req, res) {
 
     // Take the request...
@@ -55,9 +55,9 @@ module.exports = function(app) {
     Photos.create({
       routeName: routeName,
       name: Photos.name,
-      role: Photos.role,
-      age: Photos.age,
-      forcePoints: Photos.forcePoints
+      path: Photos.path,
+      web_path: Photos.web_path,
+      artist_id: Photos.artist_id
     });
 
   });
