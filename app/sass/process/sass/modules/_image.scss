@@ -61,3 +61,10 @@
 	transform: rotateY(90deg);
 }
 
+.image-one-container{
+	@include clearfix;
+}
+.image-two-container{
+	@include clearfix; 
+}
+
