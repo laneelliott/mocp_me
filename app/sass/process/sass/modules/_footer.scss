@@ -1,0 +1,14 @@
+.footer{
+	@include clearfix;
+	position:absolute;
+	color: white;
+	margin-bottom:30px !important;
+	text-align: right;
+	right:0px;
+	transition:all .2s linear;
+}
+
+.exit-right{
+	right: -2vw !important; 
+	opacity: 0;
+}

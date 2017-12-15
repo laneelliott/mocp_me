@@ -158,6 +158,14 @@ function onScrollForUpload(){
 			if (y_scroll_pos < navbarAnimationTrigger +120){
 				$(".partial-navbar-logo").removeClass("exit-right");
 			}
+
+			var footerTrigger = $(".main-return").height() - ($(".footer").height()*2);
+			if (y_scroll_pos > footerTrigger){
+				$(".footer").removeClass("exit-right");
+			}
+			if (y_scroll_pos < footerTrigger){
+				$(".footer").addClass("exit-right");
+			}
 		});
 	}
 }
