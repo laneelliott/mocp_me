@@ -34,10 +34,10 @@
 }
 .returned-text{
 	background-image: url("../images/filtered-upload.jpg");
-	height:100vh;
+	height:50vh;
 	vertical-align:center; 
 	padding-left:60px;
-	padding-top:20vh;
+	padding-top:6vh;
 	transition:all .2s linear;
 	.line{
 		margin-top: 30px;
@@ -74,7 +74,7 @@
 }
 
 .mocp-returned-images{
-	padding-top:10vh; 
+	// padding-top:10vh; 
 	padding-bottom:5vh;
 	.image-one-container{
 		padding-left:0 !important;

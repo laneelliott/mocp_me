@@ -25,11 +25,13 @@ function resizeMainReturn(){
 	$(".description").css("margin-bottom", (imageHeight-logoHeight)/2);
 
 	if ($(window).width() > 753){
+		$(".mocp-image-text").css("padding", "15px");
 		$(".uploaded-image").hide();
 		$(".returned-text").removeClass("parallax");
 		$(".returned-text").addClass("not-parallax-text");
 		$(".main-return").css("margin-left",60);
 		$(".main-return").css("margin-right",60);
+		$(".mocp-returned-images").css("padding-top", "10vh");
 	} else if ($(window).width() < 753) {
 		$(".mocp-image-text").css("padding", "30px");
 		$(".uploaded-image").show();
@@ -37,6 +39,7 @@ function resizeMainReturn(){
 		$(".returned-text").removeClass("not-parallax-text");
 		$(".main-return").css("margin-left",0);
 		$(".main-return").css("margin-right",0);
+		$(".mocp-returned-images").css("padding-top", "0");
 	}
 }
 
