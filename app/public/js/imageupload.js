@@ -10,7 +10,7 @@
 
 //Encodes the new base 64img
 function processFile(event) {
-  var encodedFile = event.target.result;
+  // var encodedFile = event.target.result;
   
 // Imports the Google Cloud client library
 const vision = require('@google-cloud/vision');
@@ -20,7 +20,7 @@ const client = new vision.ImageAnnotatorClient();
  
 // Performs label detection on the image file
 client
-  .labelDetection('./resources/wakeupcat.jpg')
+  .labelDetection('http://is4.mzstatic.com/image/thumb/Purple127/v4/74/47/31/7447317e-9844-3ee0-d189-661a55c94abe/source/1200x630bb.jpg')
   .then(results => {
     const labels = results[0].labelAnnotations;
  
@@ -30,5 +30,8 @@ client
   .catch(err => {
     console.error('ERROR:', err);
   });
+}
+
+processFile();
 
 
