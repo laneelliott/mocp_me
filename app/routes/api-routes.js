@@ -7,15 +7,24 @@ module.exports = function(app) {
   // Search for Specific Photos (or all Photos) then provides JSON
   app.get("/api", function(req, res) {
 
-      Photos.findOne({
-        where: {
-          id: 234
-        }
-        // WHERE routename = ?, [req.params.Photos]
-      }).then(function(result) {
-        console.log(result);
-        return res.json(result);
-      });
+    console.log(db.Tags)
+    // db.Tags.findAll({
+    //   where: {
+    //     id: 234
+    //   }
+    // }).then(function(result) {
+    //   console.log(result)
+    //   return res.json(result)
+    // });
+      // Photos.findOne({
+      //   where: {
+      //     id: 234
+      //   }
+      //   // WHERE routename = ?, [req.params.Photos]
+      // }).then(function(result) {
+      //   console.log(result);
+      //   return res.json(result);
+      // });
   });
 
 
