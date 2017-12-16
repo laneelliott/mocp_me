@@ -12,7 +12,7 @@ var Tags = require("../models/mocptags.js")
 module.exports = function(app) {
 
   // Search for Specific Photos (or all Photos) then provides JSON
-  app.get("/api/:Photos?", function(req, res) {
+  app.get("/api", function(req, res) {
 
     // If the user provides a specific Photos in the URL...
     if (req.params.Photos) {
@@ -45,20 +45,22 @@ module.exports = function(app) {
   // If a user sends data to add a new Photo...
   app.post("/api/new", function(req, res) {
 
-    // Take the request...
-    var Photos = req.body;
+    console.log(req);
+    console.log(res);
+    // // Take the request...
+    // var Photos = req.body;
 
-    // Create a routeName
-    var routeName = Photos.name.replace(/\s+/g, "").toLowerCase();
+    // // Create a routeName
+    // var routeName = Photos.name.replace(/\s+/g, "").toLowerCase();
 
-    // Then add the Photos to the database using sequelize
-    Photos.create({
-      routeName: routeName,
-      name: Photos.name,
-      path: Photos.path,
-      web_path: Photos.web_path,
-      artist_id: Photos.artist_id
-    });
+    // // Then add the Photos to the database using sequelize
+    // Photos.create({
+    //   routeName: routeName,
+    //   name: Photos.name,
+    //   path: Photos.path,
+    //   web_path: Photos.web_path,
+    //   artist_id: Photos.artist_id
+    // });
 
   });
 };
