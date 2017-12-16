@@ -28,6 +28,7 @@ app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
 
+
 // Imports the Google Cloud client library
 const vision = require('@google-cloud/vision');
  
@@ -53,3 +54,4 @@ db.sequelize.sync({ force: false }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
