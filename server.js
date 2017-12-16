@@ -29,24 +29,24 @@ app.listen(PORT, function() {
 });
 
 
-// Imports the Google Cloud client library
-const vision = require('@google-cloud/vision');
+// // Imports the Google Cloud client library
+// const vision = require('@google-cloud/vision');
  
-// Creates a client
-const client = new vision.ImageAnnotatorClient();
+// // Creates a client
+// const client = new vision.ImageAnnotatorClient();
  
-// Performs label detection on the image file
-client
-  .labelDetection('https://static.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg')
-  .then(results => {
-    const labels = results[0].labelAnnotations;
+// // Performs label detection on the image file
+// client
+//   .labelDetection('https://static.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg')
+//   .then(results => {
+//     const labels = results[0].labelAnnotations;
  
-    console.log('Labels:');
-    labels.forEach(label => console.log(label.description));
-  })
-  .catch(err => {
-    console.error('ERROR:', err);
-  });
+//     console.log('Labels:');
+//     labels.forEach(label => console.log(label.description));
+//   })
+//   .catch(err => {
+//     console.error('ERROR:', err);
+//   });
 
 // Syncing our sequelize models and then starting our Express app
 db.sequelize.sync({ force: false }).then(function() {

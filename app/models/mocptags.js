@@ -1,25 +1,26 @@
-// Dependencies
+module.exports = function(sequelize, DataTypes) {
+  var Tags = sequelize.define("tags", {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
+    tag_name: {
+      type: DataTypes.STRING
+    },
+    photo_id: {
+    	type: DataTypes.INTEGER
+    }
+  });
 
-// Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+  // Tags.associate = function(models) {
+  //   // We're saying that a Tags should belong to an Photos
+  //   // A Tags can't be created without an Photos due to the foreign key constraint
+  //   Tags.belongsTo(models.Photos, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
-// Creates a "Photo" model that matches up with DB
-var Tags = sequelize.define("tags", {
-  // the tag's id gets saved as an integer
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true
-  },
-  // the name of the tag (a string)
-  tag_name: Sequelize.STRING,
-  // and the photo id (an integer)
-  photo_id: Sequelize.INTEGER
-});
-
-// Syncs with DB
-Tags.sync();
-
-// Makes the Tags Model available for other files (will also create a table)
-module.exports = Tags;
+  return Tags;
+};

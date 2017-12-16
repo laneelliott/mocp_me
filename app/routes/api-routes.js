@@ -4,8 +4,8 @@
 
 // Dependencies
 // =============================================================
-var Photos = require("../models/Photos.js");
-//var Tags = require("../models/Tags.js")
+var Photos = require("../models/photos.js");
+var Tags = require("../models/mocptags.js")
 
 // Routes
 // =============================================================
