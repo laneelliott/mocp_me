@@ -73,6 +73,8 @@ db.sequelize.sync({ force: false }).then(function() {
 //~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 
     // ========== Returning image from database ==========
+    // var returnedVisionTag = "tree";   // this is a placeholder
+    
     var returnedImageName = null;
     var returnedImagePath = null;
 
