@@ -73,12 +73,12 @@ db.sequelize.sync({ force: false }).then(function() {
 //~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 
     // ========== Returning image from database ==========
-    var returnedVisionTag = "tree";   // this is a placeholder
+    // var returnedVisionTag = "tree";   // this is a placeholder
     
     var returnedImageName = null;
     var returnedImagePath = null;
 
-    // var returnedVisionTag = "test-one";   // this is a placeholder
+    var returnedVisionTag = "test-one";   // this is a placeholder
 
       //searching "Tags" for our returned vision tag
       db.Tags.findAll({
