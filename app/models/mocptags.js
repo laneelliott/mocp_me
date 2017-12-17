@@ -10,6 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     photo_id: {
     	type: DataTypes.INTEGER
     }
+  }, {
+    timestamps: false
   });
 
   // Tags.associate = function(models) {

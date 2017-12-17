@@ -17,6 +17,8 @@ module.exports = function(sequelize, DataTypes) {
     artist_id: {
       type: DataTypes.INTEGER
     }
+  }, {
+    timestamps: false
   });
 
   // Photos.associate = function(models) {
