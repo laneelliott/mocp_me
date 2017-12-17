@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Photos = sequelize.define("photos", {
+  var Photos = sequelize.define("Photos", {
     // Giving the Photos model a name of type STRING
     id: {
       type: DataTypes.INTEGER,

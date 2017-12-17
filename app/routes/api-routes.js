@@ -6,8 +6,12 @@ module.exports = function(app) {
 
   // Search for Specific Photos (or all Photos) then provides JSON
   app.get("/api", function(req, res) {
+    db.Tags.findAll({}).then(function(dbTags) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbTags);
+    });
 
-    console.log(db.Tags)
+    // console.log(db.Tags)
     // db.Tags.findAll({
     //   where: {
     //     id: 234
@@ -31,8 +35,8 @@ module.exports = function(app) {
   // If a user sends data to add a new Photo...
   app.post("/api/new", function(req, res) {
 
-    console.log(req);
-    console.log(res);
+    // console.log(req);
+    // console.log(res);
     // // Take the request...
     // var Photos = req.body;
 
