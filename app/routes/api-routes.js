@@ -5,30 +5,28 @@ var db = require("../models");
 module.exports = function(app) {
 
   // Search for Specific Photos (or all Photos) then provides JSON
-  app.get("/api", function(req, res) {
+  app.get("/api-all", function(req, res) {
     db.Tags.findAll({}).then(function(dbTags) {
       // We have access to the todos as an argument inside of the callback function
       res.json(dbTags);
     });
+  });
 
-    // console.log(db.Tags)
-    // db.Tags.findAll({
-    //   where: {
-    //     id: 234
-    //   }
-    // }).then(function(result) {
-    //   console.log(result)
-    //   return res.json(result)
-    // });
-      // Photos.findOne({
-      //   where: {
-      //     id: 234
-      //   }
-      //   // WHERE routename = ?, [req.params.Photos]
-      // }).then(function(result) {
-      //   console.log(result);
-      //   return res.json(result);
-      // });
+  // Get the images of a particular keyword
+  app.get("/api/tags/:tag_name", function(req, res) {
+    db.Tags.findAll({
+      where: {
+        tag_name: req.params.tag_name
+      }
+    }).then(function(dbTags) {
+      db.Photos.findAll({
+        where: {
+          id: dbTags[0].photo_id
+        }
+      }).then(function(photoId){
+        res.json(photoId);
+      });
+    });
   });
 
 
