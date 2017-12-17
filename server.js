@@ -74,6 +74,11 @@ db.sequelize.sync({ force: false }).then(function() {
 
     // ========== Returning image from database ==========
     var returnedVisionTag = "tree";   // this is a placeholder
+    
+    var returnedImageName = null;
+    var returnedImagePath = null;
+
+    // var returnedVisionTag = "test-one";   // this is a placeholder
 
       //searching "Tags" for our returned vision tag
       db.Tags.findAll({
@@ -91,8 +96,8 @@ db.sequelize.sync({ force: false }).then(function() {
         })
         .then(function(dbPhoto){
           // search "Photos" for that image ID and return the web path and name
-          var returnedImageName = JSON.stringify(dbPhoto[0].name);
-          var returnedImagePath = JSON.stringify(dbPhoto[0].web_path);
+          returnedImageName = JSON.stringify(dbPhoto[0].name);
+          returnedImagePath = JSON.stringify(dbPhoto[0].web_path);
           console.log(returnedImageName);
           console.log(returnedImagePath);
         })
