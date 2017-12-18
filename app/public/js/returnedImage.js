@@ -1,4 +1,3 @@
-
 function getURL() {
     $.get("/api/tags/keyboard", function(data) {
     	console.log(data[0].web_path)
