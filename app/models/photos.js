@@ -1,29 +1,33 @@
-// Dependencies
+module.exports = function(sequelize, DataTypes) {
+  var Photos = sequelize.define("Photos", {
+    // Giving the Photos model a name of type STRING
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
+    name: {
+      type: DataTypes.STRING
+    },
+    path: {
+      type: DataTypes.STRING
+    },
+    web_path: {
+      type: DataTypes.STRING
+    },
+    artist_id: {
+      type: DataTypes.INTEGER
+    }
+  }, {
+    timestamps: false
+  });
 
-// Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+  // Photos.associate = function(models) {
+  //   // Associating Photos with Posts
+  //   // When an Photos is deleted, also delete any associated Posts
+  //   Photos.hasMany(models.Tags, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
-// Creates a "Photo" model that matches up with DB
-var Photos = sequelize.define("photos", {
-  // the Photo's id gets saved as an integer
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true
-  },
-  // the name of the Photo (a string)
-  name: Sequelize.STRING,
-  // the Photo's file path (a string)
-  path: Sequelize.STRING,
-  // the Photo's URL aka web path (a string)
-  web_path: Sequelize.STRING,
-  // and the artist id (an integer)
-  artist_id: Sequelize.INTEGER
-});
-
-// Syncs with DB
-Photos.sync();
-
-// Makes the Photos Model available for other files (will also create a table)
-module.exports = Photos;
+  return Photos;
+};

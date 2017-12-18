@@ -174,17 +174,20 @@ function uploadFunction(){
 }
 
 $("#file-button").on("click", function(){
+	console.log('click')
 	intro = false;
 	$(".yellow-background-circle").css("background-color", "#E5B616");
 	$(".start-text").addClass("hide");
-	// $("#fileInput").change(function(){
+	$("#fileInput").change(function(){
 			$("#intro").hide();
 			$("#upload").show();
 		setTimeout(function(){
+			sendUploadedImage($('#fileInput'));
 			uploadFunction();
 		},3000);
-	// });
+	});
 });
+
 
 $(".mocp-image-one").hover(function(){
     $(".body-text-one").removeClass("flip");
@@ -196,6 +199,7 @@ $(".mocp-image-two").hover(function(){
     }, function(){
     $(".body-text-two").addClass("flip");
 });
+
 
 
 
