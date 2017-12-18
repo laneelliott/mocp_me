@@ -94,7 +94,7 @@ db.sequelize.sync({ force: false }).then(function() {
      
     // Creates a client
     const client = new vision.ImageAnnotatorClient();
-     
+
     // Performs label detection on the image file
     client
       .labelDetection('https://static.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg')
