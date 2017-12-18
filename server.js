@@ -4,9 +4,10 @@ var bodyParser = require("body-parser");
 
 // Sets up the Express App
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 6969;
 
 var db = require("./app/models")
+
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -19,6 +20,8 @@ app.use(express.static("app/public"));
 
 // Routes
 require("./app/routes/api-routes.js")(app);
+
+ var returnedVisionTag = null;
 
 // Here we introduce HTML routing to serve different HTML files
 //require("./app/routes/html-routes.js")(app);
@@ -51,39 +54,21 @@ db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
 
-//~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
-    // Imports the Google Cloud client library
-    // const vision = require('@google-cloud/vision');
-     
-    // Creates a client
-    // const client = new vision.ImageAnnotatorClient();
-     
-    // Performs label detection on the image file
-    // client
-    //   .labelDetection('https://static.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg')
-    //   .then(results => {
-    //     const labels = results[0].labelAnnotations;
-     
-    //     console.log('Labels:');
-    //     labels.forEach(label => console.log(label.description));
-    //   })
-    //   .catch(err => {
-    //     console.error('ERROR:', err);
-    //   });
-//~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 
     // ========== Returning image from database ==========
     // var returnedVisionTag = "tree";   // this is a placeholder
-    
-    var returnedImageName = null;
-    var returnedImagePath = null;
+    function searchDatabase(visionTagOne) {
 
-    var returnedVisionTag = "test-one";   // this is a placeholder
+      var returnedImageName = null;
+      var returnedImagePath = null;
+      console.log(visionTagOne);
+
+      // this is a placeholder
 
       //searching "Tags" for our returned vision tag
       db.Tags.findAll({
         where: {
-          tag_name: returnedVisionTag
+          tag_name: visionTagOne
         }
       })
       .then(function(dbTags) {
@@ -102,7 +87,34 @@ db.sequelize.sync({ force: false }).then(function() {
           console.log(returnedImagePath);
         })
       });
-
+    }
+    //~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+    // Imports the Google Cloud client library
+    const vision = require('@google-cloud/vision');
+     
+    // Creates a client
+    const client = new vision.ImageAnnotatorClient();
+     
+    // Performs label detection on the image file
+    client
+      .labelDetection('https://static.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg')
+      .then(results => {
+        const labels = results[0].labelAnnotations;
+     
+        // console.log('Labels:');
+        // labels.forEach(label => console.log(label.description));
+        var returnedVisionTag = labels[0].description;
+        
+        if (returnedVisionTag !== null) {
+          console.log(returnedVisionTag);
+          searchDatabase(returnedVisionTag);
+        }
+      })
+      .catch(err => {
+        console.error('ERROR:', err);
+      });
+//~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
   });
 });
+
 

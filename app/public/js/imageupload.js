@@ -3,7 +3,7 @@
   function sendUploadedImage(image) {
   var file = image[0].files[0];
   var reader = new FileReader()
-  reader.onloadend = processFile
+  // reader.onloadend = processFile
   reader.readAsDataURL(file);
   console.log(reader);
 }
