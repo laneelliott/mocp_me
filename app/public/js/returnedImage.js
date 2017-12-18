@@ -1,5 +1,6 @@
-function getURL() {
-    $.get("/api/tags/keyboard", function(data) {
+
+function getURL(tag) {
+    $.get("/api/tags/"+tag, function(data) {
     	console.log(data[0].web_path)
     	$("#mocp-image-one").attr("src", data[0].web_path);
     });

@@ -1,3 +1,4 @@
+var api_key = 'AIzaSyBY93fja8yxM9not6Nrd2v6NsRgNpJ4ZvM';
 // $(document).ready(function() {
   //Grab the file and asynchronously convert to base64.
   function sendUploadedImage(image) {
@@ -13,7 +14,6 @@ function processFile(event) {
   var encodedFile = event.target.result;
   // console.log(encodedFile);
   sendFiletoCloudVision(encodedFile);
-
 }
 function sendFiletoCloudVision(file){
   var type = 'LABEL_DETECTION';
@@ -22,7 +22,7 @@ function sendFiletoCloudVision(file){
   fileType = fileType[0] + ",";
   console.log(fileType)
   var content = file.replace(fileType, "");
-  showImage(content)
+  //showImage(content)
     // Strip out the file prefix when you convert to json.
     var json = {
      "requests": [
@@ -41,8 +41,6 @@ function sendFiletoCloudVision(file){
    }
     //console.log(JSON.stringify(json));
     json = JSON.stringify(json)
-//console.log(JSON.stringify(json));
-json = JSON.stringify(json)
 
   //Vision AJAX Request
   $.ajax({
@@ -55,8 +53,8 @@ json = JSON.stringify(json)
         "Content-Type": "application/json",
       },
       success: function(data, textStatus, jqXHR) {
-        displayJSON(data);
-        //console.log(data);
+        console.log(data.responses[0].labelAnnotations[0].description);
+        getURL(data.responses[0].labelAnnotations[0].description);
         //console.log(textStatus)
         //console.log(jqXHR)
       },
@@ -67,11 +65,12 @@ json = JSON.stringify(json)
       }
     });
 }
-// // //Encodes the new base 64img
-function postBASE64(encodedFile){
-    //Post information to route.
-    $.post("/api/new", encodedFile)
-      .then();
-}
+
+// //Encodes the new base 64img
+// function postBASE64(encodedFile){
+//     //Post information to route.
+//     $.post("/api/new", encodedFile)
+//       .then();
+// }
 
 
