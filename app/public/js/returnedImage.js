@@ -1,10 +1,11 @@
 
-var returnedImageURL = null; 
-
 function getURL() {
-    $.get("/api/tags/test-one", function(data) {
-      var returnedImageURL = JSON.stringify(data[0].web_path);
-      console.log(returnedImageURL);
-      $("#mocp-image-one").attr('src', returnedImageURL);
+    $.get("/api/tags/keyboard", function(data) {
+    	console.log(data[0].web_path)
+    	$("#mocp-image-one").attr("src", data[0].web_path);
     });
 }
+
+
+// Uncomment this to run the function on page load for testing.
+//getURL();
