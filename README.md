@@ -1,5 +1,7 @@
 # Welcome to MoCP.me!
 
+![alt text](../app/public/images/crispy.jpg?raw=true "The App")
+
 This web application uses computer vision as a way to interact with the Museum of Contemporary Photography (MoCP) collection on user-generated terms.  Since 2012, the collection has been sorted into hashtags to provide students from all over Chicago better access to the online database - we hope to expand on this platform by developing a visual tagging system.  With our application, users will take photos that will be analyzed by [Google Vision](https://cloud.google.com/vision/) and return a relevant photo (based on the hashtags) from the MoCP collection.  The user will then be prompted to re-tag the photograph and to see other photographs tagged similarly. Our goal is to make these tags and the collection more accessible and relatable.
 
 ## Getting Started
@@ -31,30 +33,13 @@ in your command line to get everything up and running!
 
 ### How the application works:
 
+...carefully
 
-## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Contributors
 
-* [Amanda Yamasaki](https://github.com/amandayamasaki)
-* [Holly Nwangwa](https://github.com/hnwangwa)
 * [Lane Anderson](https://github.com/laneelliott)
 * [Wes Iza](https://github.com/izaweslie)
+* [Holly Nwangwa](https://github.com/hnwangwa)
+* [Amanda Yamasaki](https://github.com/amandayamasaki)
