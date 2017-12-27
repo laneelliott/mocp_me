@@ -1,4 +1,3 @@
-
 var windowWidth = $(window).width();
 var marginTotal = windowWidth - $(".rectangle").width();
 
@@ -9,38 +8,15 @@ var trigger = false;
 // if intro = false, we are on #upload
 var intro = true;
 
-onloadFunction();
-function onloadFunction(){
-	$("#upload").hide();
-	$(".return-mocp-image").hide();
-	$(".white-line").removeClass("white-line-hide");
-}
-
 // ~~~~~~~~~~~~~~~ resizes #upload ~~~~~~~~~~~~~~~
 function resizeMainReturn(){
-	var logoHeight = $(".description-text").height();
-	var imageHeight = $(".uploaded-image").height();
-	$(".logo-sideways").css("height", logoHeight);
-	$(".description").css("margin-top", (imageHeight-logoHeight)/2);
-	$(".description").css("margin-bottom", (imageHeight-logoHeight)/2);
+	var logoHeight = $(".description").height();
+	var marginUpload = logoHeight/4;
 
-	if ($(window).width() > 753){
-		$(".mocp-image-text").css("padding", "15px");
-		$(".uploaded-image").hide();
-		$(".returned-text").removeClass("parallax");
-		$(".returned-text").addClass("not-parallax-text");
-		$(".main-return").css("margin-left",60);
-		$(".main-return").css("margin-right",60);
-		$(".mocp-returned-images").css("padding-top", "10vh");
-	} else if ($(window).width() < 753) {
-		$(".mocp-image-text").css("padding", "30px");
-		$(".uploaded-image").show();
-		$(".returned-text").addClass("parallax");
-		$(".returned-text").removeClass("not-parallax-text");
-		$(".main-return").css("margin-left",0);
-		$(".main-return").css("margin-right",0);
-		$(".mocp-returned-images").css("padding-top", "0");
-	}
+	$(".logo-sideways").css("height", logoHeight);
+	$(".description-mobile-container").css("height", logoHeight + (marginUpload*2));
+	$(".description-mobile-container").css("padding-top", marginUpload);
+	$(".description-mobile-container").css("padding-bottom",marginUpload);
 }
 
 // ~~~~~~~~~~~~~~~ resizes #intro ~~~~~~~~~~~~~~~
@@ -48,10 +24,17 @@ function resizeWindows(){
 	windowWidth = $(window).width();
 	marginTotal = windowWidth - 272;
 	
-	$(".transform-container").css("margin-left", marginTotal/2);
-	$("#header").css("margin-left", marginTotal/2);
+	$(".transform-container").css("margin-left", marginTotal/1.5);
+	$("#header").css("margin-left", marginTotal/1.5);
 }
-resizeWindows();
+
+function onloadFunction(){
+	$("#upload").hide();
+	$(".return-mocp-image").hide();
+	$(".white-line").removeClass("white-line-hide");
+	resizeWindows();
+}
+onloadFunction();
 
 // ~~~~~~~~~~~~~~~ resize windows when screen is resized ~~~~~~~~~~~~~~~
 $(window).on('resize', function(){
@@ -141,25 +124,11 @@ function onScrollForUpload(){
 		$(window).on('scroll',function() {
 			var y_scroll_pos = window.pageYOffset;
 
-			var navbarAnimationTrigger = ($(".navbar").height() /3);
-			if (y_scroll_pos > navbarAnimationTrigger){
-				$(".navbar-logo").addClass("transform-left");
-				$(".navbar-options").addClass("exit-right");
-				$(".navbar-options").addClass("exit-right");
-				$(".partial-navbar-logo").show();
+			if (y_scroll_pos > $(".main-body").height()){
+				$("#footer-line").addClass("footer-line-show");
 			}
-			if (y_scroll_pos < navbarAnimationTrigger){
-				$(".navbar-logo").removeClass("transform-left");
-				$(".navbar-options").removeClass("exit-right");
-				$(".partial-navbar-logo").hide();
-			}
-			if ($(window).width() < 753){
-				if (y_scroll_pos > navbarAnimationTrigger +120){
-					$(".partial-navbar-logo").addClass("exit-right");
-				}
-			}
-			if (y_scroll_pos < navbarAnimationTrigger +120){
-				$(".partial-navbar-logo").removeClass("exit-right");
+			if (y_scroll_pos < $(".main-body").height()){
+				$("#footer-line").removeClass("footer-line-show");
 			}
 		});
 	}
@@ -167,8 +136,8 @@ function onScrollForUpload(){
 
 
 function uploadFunction(){
-	$(".loader").hide();
-	$(".main-return").removeClass("hide");
+	// $(".loader").hide();
+	// $(".main-return").removeClass("hide");
 	resizeMainReturn();
 	onScrollForUpload();
 }
@@ -178,29 +147,52 @@ $("#file-button").on("click", function(){
 	intro = false;
 	$(".yellow-background-circle").css("background-color", "#E5B616");
 	$(".start-text").addClass("hide");
-	$("#fileInput").change(function(){
+	// $("#fileInput").change(function(){
 			$("#intro").hide();
 			$("#upload").show();
 		setTimeout(function(){
-			sendUploadedImage($('#fileInput'));
+			// sendUploadedImage($('#fileInput'));
 			uploadFunction();
-		},3000);
-	});
+		},300);
+	// });
 });
 
 
 $(".mocp-image-one").hover(function(){
-    $(".body-text-one").removeClass("flip");
+    $("#tags-one").removeClass("flip");
     }, function(){
-    $(".body-text-one").addClass("flip");
+    $("#tags-one").addClass("flip");
 });
 $(".mocp-image-two").hover(function(){
-    $(".body-text-two").removeClass("flip");
+    $("#tags-two").removeClass("flip");
     }, function(){
-    $(".body-text-two").addClass("flip");
+    $("#tags-two").addClass("flip");
 });
 
+function addTagOne(){
+	$("#add-tag-one").addClass("button-animation");
+	setTimeout(function(){
+		var addTagImageOne = prompt("Add a tag:");
+		$("#add-tag-one").removeClass("button-animation");
+	},500);
+}
+function addTagTwo(){
+	$("#add-tag-two").addClass("button-animation");
+	setTimeout(function(){
+		var addTagImageTwo = prompt("Add a tag:");
+		$("#add-tag-two").removeClass("button-animation");
+	},500);
+}
 
-
+$(".bug-report").on("click", function(){
+	setTimeout(function(){
+		var bugDescription = prompt("Tell us about your bug - be sure to include what browser and what device the error occured on.");
+    	$("#bug-report-title").css("opacity", 0);
+		$(".bug-report-validation").css("display", "none");
+		$("#bug-line").css("display", "none");
+		$(".text-validation").css("opacity", 1);
+		$(".text-validation").css("display", "block");
+	}, 700);
+});
 
 

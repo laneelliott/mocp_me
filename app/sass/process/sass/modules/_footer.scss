@@ -148,9 +148,7 @@
 	  width: 320px;
 	  height: 95px;
 	}
-}
-
-.footer-line-hide{
+	.footer-line-hide{
 	transition: all 1.5s linear;
 	height:25px;
 	width:10%;
@@ -158,16 +156,18 @@
 	border-bottom:solid $offwhite;
 	border-width: 1px;
 	opacity:0;
-}
-.footer-line-show{
-	margin-left:0 !important;
-	width:100% !important;
-	opacity:.7 !important;
+	}
+	.footer-line-show{
+		margin-left:0 !important;
+		width:100% !important;
+		opacity:.7 !important;
+	}
+
+	.bug-report-validation{
+		transition: all .3s linear;
+	}
 }
 
-.bug-report-validation{
-	transition: all .3s linear;
-}
 
 
 
