@@ -1,6 +1,6 @@
 
 .navbar{
-	z-index:100000000;
+	z-index:10000000;
 	background-color: none;
 	margin-top:20px;
 	margin-bottom:10px !important;
@@ -27,11 +27,7 @@
 		}
 	}
 	.navbar-logo{
-		text-align: left;
-		padding:0 !important;
-		left:4vw;
-		position:fixed !important; 
-		transition:all .2s linear;
+		position:fixed;
 	}
 	.partial-navbar-logo{
 		text-align: left;
