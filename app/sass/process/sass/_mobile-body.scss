@@ -15,7 +15,7 @@
 	}
 	.images{
 		background-color: $reallyLightGray !important;
-		height:400vh;
+		height:330vh !important; 
 		width:100vw;
 		z-index: -100000000000;
 		// position:absolute !important;
@@ -64,6 +64,7 @@
 				border-width:3vw;
 				margin-left:9.5vw;
 				width:80.75vw;
+				position:absolute;
 				h6{
 					font-size:2vw;
 					margin-top:-1.25vh;
@@ -86,7 +87,7 @@
 					@include fixedBgWrap;
 					.fixed-bg{
 						@include fixedBg;
-						background-color: $offwhite;
+						// background-color: $offwhite;
 						height:100vh;
 						transition:all .6s ease-out;
 						.image{
@@ -118,7 +119,7 @@
 									transition:all 1s linear; 
 								}
 								.add-tag{
-									h6{
+									h5, h6{
 										transition:all .2s linear;
 										color: $offwhite !important;
 										margin: 0px !important;
@@ -143,6 +144,47 @@
 						}
 					}
 				}
+				.google-vision-tags{
+					h5{
+						color: white !important;
+					} 
+					display: block;
+				  	text-align: center;
+				  	position: relative;
+				  	text-decoration: none;
+				  	margin-left:2vw;
+				  	margin-right:2vw;
+				  	margin-top: 1.5vh;
+				  	width:73vw !important;
+				  	height:13vh !important;
+				  	letter-spacing: 1.1px;
+				  	border:solid $lightGray;
+				  	border-width:2px;
+				}
+				.google-vision-tags:before,
+				.google-vision-tags:after{
+				  position: absolute;
+				  content: "";
+				  transition: all .5s;
+				}
+				.google-vision-tags:before{
+				  border-bottom: 1px solid $offwhite;
+				  border-left: 1px solid $offwhite;
+				  width: 10px;
+				  height: 10px;
+				  left: -2vw;
+				  bottom: -1.5vh;
+				  opacity:1;
+				}
+				.google-vision-tags:after{
+				  border-top: 1px solid $offwhite;
+				  border-right: 1px solid $offwhite;
+				  width: 10px;
+				  height: 10px;
+				  top: -1.5vh;
+				  right: -2vw;
+				  opacity:1;
+				}
 			}
 		}
 		.container-div:hover{
@@ -160,20 +202,18 @@
 				}
 			}
 			.fixed-bg{
-				background-color: $lightGray !important;
+				background-color: $lightGray;
 			}
 		}
-		.container-div-uploaded{
-			@include containerDiv;
+		.container-div-uploaded{ 
 			height: 150vh !important;
-			.google-vision-tags{
-				@include imageText;
-				transition:all .6s linear; 
-				opacity:1 !important;
-				margin-left:0px;
-				display:block;
-				z-index: 100000000;
-			}
+		}
+		.container-div-upload-text{
+			height:20vh !important;
+			background-color: $darkGray !important;
+			padding-top:2vh;
+			padding-bottom:2vh;
+			vertical-align: center !important;
 		}
 	}
 }
@@ -182,8 +222,21 @@
 }
 
 
-
-
+.vision-tags-on-scroll{
+	.google-vision-tags{
+		background-color: $lightGray;
+	}
+	.google-vision-tags:before{
+	  width: 76vw !important;
+	  height: 15.5vh !important;
+	  opacity:1;
+	}
+	.google-vision-tags:after{
+	  width: 76vw !important;
+	  height: 15.5vh !important;
+	  opacity:1;
+	}
+}
 
 
 

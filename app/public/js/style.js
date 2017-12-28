@@ -123,12 +123,30 @@ function onScrollForUpload(){
 	if (intro === false){
 		$(window).on('scroll',function() {
 			var y_scroll_pos = window.pageYOffset;
+			console.log(y_scroll_pos);
+			var mainBodyHeight = $(".main-body").height();
+			var descriptionHeight = $(".footer").height();
+			var uploadedImageHeight = $(".container-div-uploaded").height();
+			// console.log("uploaded height" + (uploadedImageHeight - (descriptionHeight/1.5)));
 
-			if (y_scroll_pos > $(".main-body").height()){
+			if (y_scroll_pos > mainBodyHeight-(descriptionHeight*1.3)){
 				$("#footer-line").addClass("footer-line-show");
 			}
-			if (y_scroll_pos < $(".main-body").height()){
+			if (y_scroll_pos < mainBodyHeight-(descriptionHeight*1.3)){
 				$("#footer-line").removeClass("footer-line-show");
+			}
+
+			if (y_scroll_pos > uploadedImageHeight - (descriptionHeight/1.5)){
+				$(".container-div-upload-text").addClass("vision-tags-on-scroll");
+			}
+			if (y_scroll_pos < uploadedImageHeight - (descriptionHeight/1.5)){
+				$(".container-div-upload-text").removeClass("vision-tags-on-scroll");
+			}
+			if (y_scroll_pos > uploadedImageHeight - (descriptionHeight/4)){
+				$(".container-div-upload-text").removeClass("vision-tags-on-scroll");
+			}
+			if (y_scroll_pos < uploadedImageHeight - (descriptionHeight/4) && y_scroll_pos > uploadedImageHeight - (descriptionHeight/1.5)){
+				$(".container-div-upload-text").addClass("vision-tags-on-scroll");
 			}
 		});
 	}
@@ -193,6 +211,12 @@ $(".bug-report").on("click", function(){
 		$(".text-validation").css("opacity", 1);
 		$(".text-validation").css("display", "block");
 	}, 700);
+});
+
+$("#about").on("click", function(){
+	setTimeout(function(){
+		window.open('http://www.mocp.org/tagging-project');
+	},500);
 });
 
 

@@ -7,13 +7,14 @@
 		opacity: .7;
 		text-align: left;
 	}
-	position:absolute;
+	position:relative !important;
 	background-color: $darkGray;
 	transition:all .2s linear;
 	height:100vh;
 	width:100vw;
-	z-index:100000000000 !important;
+	z-index:1000000000000000000 !important;
 	padding:9.5vw;
+	display:block;
 	.footer-maintext{
 		text-align: left !important;
 		.footer-button{
@@ -31,7 +32,7 @@
 		 .footer-button:hover{
 			opacity:1;
 			background-color: $lightGray;
-			h5,h6{
+			h4, h5,h6{
 				color: white !important;
 			}
 		}
@@ -46,8 +47,8 @@
 	.subtext{
 		text-align: right !important;
 	}
-	h5,h6{
-		color: $offwhite;
+	h4,h5,h6{
+		color: $offwhite !important;
 	}
 	.col-xs-11{
 		padding:0 !important;
@@ -71,8 +72,9 @@
 	}
 	.footer-subtext{
 		transition: all .6s linear;
-		opacity:.7;
+		opacity:.5 !important;
 		h5,h6{
+			color: $reallyLightGray;
 			margin:0 !important;
 		}
 	}
@@ -95,13 +97,12 @@
 		}
 	}
 	.bottom-footer{
-		text-align: center;
-		margin-top: 60px;
+		text-align: left;
+		margin-top: 40px;
 		z-index: 100000000 !important;
 		h5,h6{
 			color: $reallyLightGray !important;
 			opacity: .4;
-			margin:5px !important;
 		}
 	}
 	button{
@@ -128,6 +129,7 @@
 	  height: 10px;
 	  left: -10px;
 	  bottom: -10px;
+	  opacity:.1;
 	}
 
 	button:after{
@@ -137,18 +139,30 @@
 	  height: 10px;
 	  top: -10px;
 	  right: -10px;
+	  opacity:.1;
 	}
 
 	button:hover:before{
 	  width: 320px;
 	  height: 95px;
+	  opacity:1;
 	}
 
 	button:hover:after{
 	  width: 320px;
 	  height: 95px;
+	  opacity:1;
 	}
-	.footer-line-hide{
+
+	.bug-report-validation{
+		transition: all .3s linear;
+	}
+	.footer-extras{
+		opacity:.4;
+	}
+}
+
+.footer-line-hide{
 	transition: all 1.5s linear;
 	height:25px;
 	width:10%;
@@ -156,19 +170,12 @@
 	border-bottom:solid $offwhite;
 	border-width: 1px;
 	opacity:0;
-	}
-	.footer-line-show{
-		margin-left:0 !important;
-		width:100% !important;
-		opacity:.7 !important;
-	}
-
-	.bug-report-validation{
-		transition: all .3s linear;
-	}
 }
-
-
+.footer-line-show{
+	margin-left:0 !important;
+	width:100% !important;
+	opacity:.7 !important;
+}
 
 
 

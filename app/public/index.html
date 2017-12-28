@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-  <div id="intro" class="">
+  <div id="intro">
     <div id="yellow-background" class="yellow-background">
     </div>
     <div class="row">
@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="start-text hide">
-            <h2 style="margin-left: 20px;color:#D0D0D0; margin-top: 100px">Let's get started.</h2>
+            <h4 style="margin-left: 87px;color:#D0D0D0; margin-top:150px;">click to start</h4>
           </div>
         </div>
         <span><input 
@@ -76,7 +76,7 @@
     </div>
 
     <!-- ~*~*~*~*~*~*~*~*~ image upload ~*~*~*~*~*~*~*~*~ -->
-    <div class="row images" style="height:310vh">
+    <div class="row images">
       <div class="image-upload-mobile">
         <!-- <div class="frame"></div> -->
         <div class="spacer-top">
@@ -86,17 +86,20 @@
           <div class="reveal-image">
             <div class="fixed-bg-wrap">
               <div class="fixed-bg">
-                <div class="returned-text">
-                  <!-- <div class="google-vision-tags"> -->
-                    <h4>building</h4>
-                    <h4>architecture</h4>
-                    <h4>modernism</h4>
-                    <h4>window</h4>
-                    <div class="line"></div>
-                  <!-- </div> -->
-                </div>
                 <img class="uploaded-image image" src="images/uploaded-image.jpg" style="width:100%">
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-div container-div-upload-text">
+          <div class="reveal-image">
+            <div class="fixed-bg-wrap">
+              <div class="google-vision-tags">
+                <h5>#building</h5>
+                <h5>#architecture</h5>
+                <h5>#window</h5>
+                <div class="line"></div>
+              </div> 
             </div>
           </div>
         </div>
@@ -116,7 +119,7 @@
                     <div id="more-info-one arrow"><h5>more info <strong>&#8594;</strong></h5></div>
                     <div class="line"></div>
                     <div class="add-tag">
-                      <button id ="add-tag-one" type="button" class="btn" onclick="addTagOne()"><strong><h6>add tag</h6></strong></button>
+                      <button id ="add-tag-one" type="button" class="btn" onclick="addTagOne()"><strong><h5>add tag</h5></strong></button>
                     </div>
                     <div id="tags-one" class="flip tags">
                       <h5>#architecture #black&amp;white #building #window #newBauhaus #Chicago #arch #facade #symmetry #bauhaus</h5>
@@ -144,7 +147,7 @@
                     <div id="more-info-two arrow"><h5>more info <strong>&#8594;</strong></h5></div>
                     <div class="line"></div>
                     <div class="add-tag">
-                      <button id ="add-tag-two" type="button" class="btn" onclick="addTagTwo()"><strong><h6>add tag</h6></strong></button>
+                      <button id ="add-tag-two" type="button" class="btn" onclick="addTagTwo()"><strong><h5>add tag</h5></strong></button>
                     </div>
                     <div id="tags-two" class="flip tags">
                       <h5>#architecture #black&amp;white #building #window #newBauhaus #Chicago #arch #facade #symmetry #bauhaus</h5>
@@ -167,60 +170,51 @@
     <!-- ~*~*~*~*~*~*~*~*~ footer ~*~*~*~*~*~*~*~*~ -->
     <div class="row footer">
       <div class="footer-logo">
-        <h6>#MoCPme</h6>
+        <h5>#MoCPme</h5>
       </div>
       <div class="footer-maintext row">
         <button class="btn-block footer-button">
-          <h5>#get_social</h5>
+          <h5><strong>#get_social</strong></h5>
           <div class="footer-subtext">
-            <h6>Share your results.</h6>
+            <h5>Share your results.</h5>
           </div>
         </button>
         <button class="btn-block footer-button">
-          <h5>#trending_tags</h5>
+          <h5><strong>#trending_tags</strong></h5>
           <div class="footer-subtext">
-            <h6>See our trending tags.</h6>
+            <h5>See our trending tags.</h5>
+          </div>
+        </button>
+        <button id="about" class="btn-block footer-button">
+          <h5><strong>#about</strong></h5>
+          <div class="footer-subtext">
+            <h5>About the tagging project.</h5>
           </div>
         </button>
       </div>
       <br>
       <div id="footer-line" class="footer-line-hide"></div>
+      <br>
       <div class="subtext">
-        <br> 
-        <div id="about" class="footer-extras" onclick="window.open('http://www.mocp.org/tagging-project');">
-          <div class="row">
-            <div class="col-xs-11">
-              <h6><strong>#about</strong></h6>
-            </div>
-            <div class="col-xs-1">
-              <div class="line about-line"></div>
-            </div>
-          </div>
-          <div class="row footer-subtext">
-            <h6>More information on the MoCP collection and the 2012 tagging project. &nbsp; &#8594; </h6>
-          </div>
-        </div>
-        <br>
         <div class="footer-extras bug-report">
           <div class="row">
             <div id="bug-report-title" class="col-xs-11">
-              <h6><strong>#report_bug</strong></h6>
+              <h5><strong>#report_bug</strong></h5>
             </div>
             <div class="col-xs-1">
               <div id="bug-line" class="line"></div>
             </div>
           </div>
           <div class="row footer-subtext bug-report-validation">
-            <h6>We are still in beta - help us find our bugs. &nbsp; &#8594; </h6>
+            <h5>We are still in beta - help us find our bugs. &nbsp; &#8594; </h5>
           </div>
           <div class="text-validation">
-            <h6>Thank you for telling us about our bug.</h6>
-            <h6 style="opacity: .7">report another &nbsp; &#8594;</h6>
+            <h5>Thank you for telling us about our bug.</h5>
+            <h5 style="opacity: .7">report another &nbsp; &#8594;</h5>
           </div>
         </div>
       </div>
       <div class="bottom-footer">
-        <h6>Thank you for participating.</h6>
         <h6>&#9400; 2018 Museum of Contemporary Photography</h6>
       </div>
     </div>
@@ -231,3 +225,7 @@
   <script type="text/javascript" src="js/returnedimage.js"></script>
 </body>
 </html>
+
+
+
+
