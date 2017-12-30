@@ -24,8 +24,13 @@ function resizeWindows(){
 	windowWidth = $(window).width();
 	marginTotal = windowWidth - 272;
 	
-	$(".transform-container").css("margin-left", marginTotal/1.5);
-	$("#header").css("margin-left", marginTotal/1.5);
+	if (windowWidth < 450){
+		$(".transform-container").css("margin-left", marginTotal/1.5);
+		$("#header").css("margin-left", marginTotal/1.5);
+	} else {
+		$(".transform-container").css("margin-left", marginTotal/2);
+		$("#header").css("margin-left", marginTotal/2);
+	}
 }
 
 function onloadFunction(){
@@ -43,7 +48,7 @@ $(window).on('resize', function(){
 		if (windowWidth > 400){
 			resizeWindows();
 			if (trigger === true){
-				$(".yellow-background-circle").css("margin-left", marginTotal/2);
+				$(".yellow-background-circle").css("margin-left", marginTotal/2.1);
 			}
 			$(".yellow-background").css("transition", "all 0s linear");
 			console.log("hello world 1")
@@ -64,7 +69,7 @@ if (intro === true){
 		if (y_scroll_pos > testTrigger +20){
 			if(trigger === false){
 				$(".yellow-background").addClass("yellow-background-circle");
-				$(".yellow-background-circle").css("margin-left", marginTotal/2);
+				$(".yellow-background-circle").css("margin-left", marginTotal/2.1);
 
 				$(".yellow-background").css("transition", "all .5s linear");
 				$(".rectangle").addClass("camera-body-black");
@@ -123,10 +128,11 @@ function onScrollForUpload(){
 	if (intro === false){
 		$(window).on('scroll',function() {
 			var y_scroll_pos = window.pageYOffset;
-			console.log(y_scroll_pos);
 			var mainBodyHeight = $(".main-body").height();
 			var descriptionHeight = $(".footer").height();
 			var uploadedImageHeight = $(".container-div-uploaded").height();
+			var textHeight = $("#returned-text-one").height();
+			var containerDivImageOne = $(".mocp-image-one").height() + $(".container-div-img-text").height();
 			// console.log("uploaded height" + (uploadedImageHeight - (descriptionHeight/1.5)));
 
 			if (y_scroll_pos > mainBodyHeight-(descriptionHeight*1.3)){
@@ -148,6 +154,34 @@ function onScrollForUpload(){
 			if (y_scroll_pos < uploadedImageHeight - (descriptionHeight/4) && y_scroll_pos > uploadedImageHeight - (descriptionHeight/1.5)){
 				$(".container-div-upload-text").addClass("vision-tags-on-scroll");
 			}
+
+			if (y_scroll_pos > uploadedImageHeight + (textHeight/4)){
+				$("#returned-text-one").removeClass("return-text-hide");
+			}
+			if (y_scroll_pos < uploadedImageHeight + (textHeight/4)){
+				$("#returned-text-one").addClass("return-text-hide");
+			}
+			// console.log(uploadedImageHeight + (textHeight/1.5));
+			if (y_scroll_pos > uploadedImageHeight + textHeight - (textHeight/10)){
+				$("#returned-text-one").addClass("return-text-hide");
+			}
+			if ((y_scroll_pos < uploadedImageHeight + textHeight - (textHeight/10)) && (y_scroll_pos > uploadedImageHeight + (textHeight/4))){
+				$("#returned-text-one").removeClass("return-text-hide");
+			}
+
+			// if (y_scroll_pos > containerDivImageOne + uploadedImageHeight + (textHeight/4)){
+			// 	$("#returned-text-two").removeClass("return-text-hide");
+			// }
+			// if (y_scroll_pos < containerDivImageOne + uploadedImageHeight + (textHeight/4)){
+			// 	$("#returned-text-two").addClass("return-text-hide");
+			// }
+			// // console.log(uploadedImageHeight + (textHeight/1.5));
+			// if (y_scroll_pos > containerDivImageOne +uploadedImageHeight +textHeight+ (textHeight/20)){
+			// 	$("#returned-text-two").addClass("return-text-hide");
+			// }
+			// if ((y_scroll_pos < containerDivImageOne + uploadedImageHeight +textHeight+ (textHeight/20)) && (y_scroll_pos > containerDivImageOne + uploadedImageHeight + (textHeight/4))){
+			// 	$("#returned-text-two").removeClass("return-text-hide");
+			// }
 		});
 	}
 }
@@ -165,55 +199,87 @@ $("#file-button").on("click", function(){
 	intro = false;
 	$(".yellow-background-circle").css("background-color", "#E5B616");
 	$(".start-text").addClass("hide");
-	// $("#fileInput").change(function(){
-			$("#intro").hide();
-			$("#upload").show();
+	$("#fileInput").change(function(){
+		$("#intro").hide();
+		$("#upload").show();
 		setTimeout(function(){
-			// sendUploadedImage($('#fileInput'));
+			sendUploadedImage($('#fileInput'));
 			uploadFunction();
 		},300);
-	// });
+	});
 });
 
+// var imgOne = false;
+// var imgTwo = false;
 
-$(".mocp-image-one").hover(function(){
+$(".mocp-image-one").on("click", function(){
+	$(".mocp-image-one").addClass("container-div-clicked");
     $("#tags-one").removeClass("flip");
-    }, function(){
-    $("#tags-one").addClass("flip");
+    setTimeout(function(){
+		imgOne = true;
+	}, 500);
 });
-$(".mocp-image-two").hover(function(){
+
+$(".mocp-image-two").on("click", function(){
+	$(".mocp-image-two").addClass("container-div-clicked");
     $("#tags-two").removeClass("flip");
-    }, function(){
-    $("#tags-two").addClass("flip");
+    setTimeout(function(){
+		imgTwo = true;
+	}, 500);
 });
+
+function backArrowOne(){
+	setTimeout(function(){
+		// $("#tags-one").addClass("flip");
+		$(".mocp-image-one").removeClass("container-div-clicked");
+	}, 100);
+}
+
+function backArrowTwo(){
+	setTimeout(function(){
+		// $("#tags-two").addClass("flip");
+		$(".mocp-image-two").removeClass("container-div-clicked");
+	}, 100);
+}
 
 function addTagOne(){
 	$("#add-tag-one").addClass("button-animation");
 	setTimeout(function(){
 		var addTagImageOne = prompt("Add a tag:");
 		$("#add-tag-one").removeClass("button-animation");
+		setTimeout(function(){
+			backArrowOne();
+			imgOne = false;
+		}, 400);
 	},500);
 }
+
 function addTagTwo(){
 	$("#add-tag-two").addClass("button-animation");
 	setTimeout(function(){
 		var addTagImageTwo = prompt("Add a tag:");
 		$("#add-tag-two").removeClass("button-animation");
+		setTimeout(function(){
+			backArrowTwo();
+			imgTwo = false;
+		}, 400);
 	},500);
 }
 
 $(".bug-report").on("click", function(){
+	$(".bug-report").addClass("bug-report-click");
+	$(".bug-report-validation").hide();
 	setTimeout(function(){
-		var bugDescription = prompt("Tell us about your bug - be sure to include what browser and what device the error occured on.");
-    	$("#bug-report-title").css("opacity", 0);
-		$(".bug-report-validation").css("display", "none");
-		$("#bug-line").css("display", "none");
-		$(".text-validation").css("opacity", 1);
-		$(".text-validation").css("display", "block");
+		if (windowWidth <= 450){
+			var bugDescription = prompt("Tell us about your bug - be sure to include what browser and what device the error occured on.");
+			$(".bug-report").removeClass("bug-report-click");
+			$(".text-validation").css("opacity", 1);
+		}
 	}, 700);
 });
 
 $("#about").on("click", function(){
+	$("#about").addClass(".button-clicked");
 	setTimeout(function(){
 		window.open('http://www.mocp.org/tagging-project');
 	},500);

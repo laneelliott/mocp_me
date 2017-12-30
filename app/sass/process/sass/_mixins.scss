@@ -46,12 +46,13 @@
 }
 
 @mixin containerDiv{
+	transition:all .6s linear;
 	border-left:solid $darkGray; 
 	border-right:solid $darkGray; 
 	border-width:1.75vw;
-	margin-left:9.5vw;
+	margin-left:10.5vw;
 	height:80vh;
-	width:80.75vw;
+	width:79.25vw;
 }
 
 @mixin revealImage{

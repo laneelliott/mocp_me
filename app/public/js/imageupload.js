@@ -15,6 +15,18 @@ function processFile(event) {
   // console.log(encodedFile);
   sendFiletoCloudVision(encodedFile);
 }
+
+
+
+// function showImage(base64){
+//   // var image = $('<img style="height:100vh" src="data:image/jpeg;base64, '+ base64 +'" />');
+//   // console.log(base64);
+//   var imageSource = '"data:image/jpeg;base64, '+ base64 +'"';
+//   $("#uploaded-image").attr("src", imageSource);
+// }
+
+
+
 function sendFiletoCloudVision(file){
   var type = 'LABEL_DETECTION';
   //This will currently only allow jpeg images
@@ -22,7 +34,6 @@ function sendFiletoCloudVision(file){
   fileType = fileType[0] + ",";
   console.log(fileType)
   var content = file.replace(fileType, "");
-  //showImage(content)
     // Strip out the file prefix when you convert to json.
     var json = {
      "requests": [
@@ -54,7 +65,7 @@ function sendFiletoCloudVision(file){
       },
       success: function(data, textStatus, jqXHR) {
         console.log(data.responses[0].labelAnnotations[0].description);
-        getURL(data.responses[0].labelAnnotations[0].description);
+        // getURL(data.responses[0].labelAnnotations[0].description);
         //console.log(textStatus)
         //console.log(jqXHR)
       },
