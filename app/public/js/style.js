@@ -51,7 +51,6 @@ $(window).on('resize', function(){
 				$(".yellow-background-circle").css("margin-left", marginTotal/2.1);
 			}
 			$(".yellow-background").css("transition", "all 0s linear");
-			console.log("hello world 1")
 		}
 	}
 	if (intro === false){
@@ -201,7 +200,6 @@ $("#file-button").on("click", function(){
 		console.log('click');
 		clicked = true;
 		intro = false;
-		$(".yellow-background-circle").css("background-color", "#E5B616");
 		$(".start-text").addClass("hide");
 		$("#fileInput").change(function(){
 			$("#intro").hide();
