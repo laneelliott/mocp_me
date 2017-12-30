@@ -53,8 +53,11 @@ function sendFiletoCloudVision(file){
         "Content-Type": "application/json",
       },
       success: function(data, textStatus, jqXHR) {
-        console.log(data.responses[0].labelAnnotations[0].description);
-        getURL(data.responses[0].labelAnnotations[0].description);
+        console.log(data.responses[0].labelAnnotations);
+        for (var i = 0; i < data.responses[0].labelAnnotations.length; i++){
+          console.log(data.responses[0].labelAnnotations[i].description);
+        }
+        //getURL(data.responses[0].labelAnnotations[0].description);
         //console.log(textStatus)
         //console.log(jqXHR)
       },
