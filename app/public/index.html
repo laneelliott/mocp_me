@@ -7,9 +7,10 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
-  <div id="intro" class="container-fluid">
+  <div id="intro">
     <div id="yellow-background" class="yellow-background">
     </div>
     <div class="row">
@@ -45,11 +46,12 @@
             </div>
           </div>
           <div class="start-text hide">
-            <h2 style="margin-left: 20px;color:#D0D0D0; margin-top: 100px"><strong>Let's get started.</strong></h2>
+            <h4 style="margin-left: 87px;color:#D0D0D0; margin-top:135px;">click to start</h4>
           </div>
         </div>
         <span><input 
           type="file" 
+          onchange="document.getElementById('uploaded-image').src = window.URL.createObjectURL(this.files[0])"
           id="fileInput" 
           name="fileField"
           style="display:none">
@@ -58,130 +60,190 @@
     </div>
   </div>
 
-  <div id="upload" class="" style="padding: 0px !important;">
-    <!-- loader class -->
-    <div class="loader">
-      <div class="loader-animation"></div>
-      <h2>this loader is temporary... itll be sexier in 2.0 ;)</h2>
-    </div>
-    <!-- body -->
-    <div class="main-return hide">
-      <div class="col-lg-1"></div>
-      <div class="col-lg-10">
-        <!-- navbar -->
-        <div class="row navbar">
-          <div class="navbar-logo col-sm-4 col-xs-4">
-            <h5>MUSEUM OF CONTEMPORARY PHOTOGRAPHY</h5>
-          </div>
-          <div class="partial-navbar-logo col-sm-4 col-xs-6" style="display: none">
-            <h5>#MoCP</h5>
-          </div>
-          <div class="navbar-options col-xs-7 col-sm-8 col-xs-8">
-              <div class="col-sm-8 col-xs-1"></div>
-              <div class="navbar-trending-tags col-sm-3 col-xs-8" style="padding-right: 2vw">
-                <h5>TRENDING TAGS</h5>
-              </div>
-              <div class="navbar-about col-sm-1 col-xs-3">
-                <h5>ABOUT</h5>
-              </div>
-          </div>
+  <div id="upload" class="main-body">
+    <div class="row intro" style="margin:0px">
+
+      <!-- ~*~*~*~*~*~*~*~*~ description ~*~*~*~*~*~*~*~*~ -->
+      <div class="description-mobile-container">
+        <div class="logo-sideways col-xs-4">
+          <img id="logo-sideways" src="images/logo-sideways.png" style="height:100%">
         </div>
-        <!-- description & uploaded image -->
-        <div class="row">
-          <div class="col-sm-6 col-md-7">
-            <div class="description">
-              <div class="logo-sideways col-xs-2">
-                <img id="logo-sideways" src="images/logo-sideways.png" style="height:100%">
-              </div>
-              <div class="description-text col-md-6 col-xs-10">
-                <h5>In 1980, the Museum of Contemporary Photography established a permanent collection and it is through this collection that the museum has been able to provide an invaluable research and educational resource to the general public and thousands of students. In 2009, the growing collection was digitized and made available online for free to the general public.
-                <br>
-                <br>
-                <strong>MoCP.me</strong> is a web application using computer vision and machine learning as a way to interact with the MoCP collection on user-generated terms.</h5> 
-              </div>
-              <div class="col-md-4"></div>
-            </div>
-          </div>
-          <div class="col-lg-1"></div>
-          <div class="col-sm-6 col-md-5">
-            <div class="uploaded-image parallax" style="height:80vh"></div>
-            <div class="returned-text">
-              <div class="col-xs-8">
-                <h3>THIS<br>IS</h3>
-                <h3><strong>BUILDING</strong></h3>
-                <h3><strong>WINDOW</strong></h3>
-                <h3><strong>MODERN</strong></h3>
-                <div class="line"></div>
-              </div>
-              <div class="col-xs-4"></div>
-            </div>
-            <div class="uploaded-image parallax" style="height:20vh"></div>
-          </div>
-        </div>
-        <!-- mocp images from database -->
-        <div class="mocp-returned-images row">
-           <div class="image-one-container col-sm-5 col-md-5 col-lg-5">
-            <div class="mocp-image-one">
-              <div class="mocp-image-text">
-                <div class="head-text-one">
-                  <h5><strong>Auditorium Building, Chicago, Illinois</strong></h5>
-                </div>
-                <div class="line"></div>
-                <div class="body-text-one flip">
-                  <h5>By the mid-twentieth century, urban regeneration and development in the United States spurred the demolition of historic buildings. Facing this impending loss, historian and photographer Richard Nickel began campaigning for the preservation of American architecture. Starting in the 1950s, he lobbied for the protection of historic structures, researched and recorded their designs, and even personally salvaged some of their ornamental remains. His photographs constitute their own mode of preservation in safeguarding the visual memory of the buildings.</h5>
-                </div>
-              </div>
-              <img id="mocp-image-one" src="images/mocp-image-one.jpg" style="width:100%">
-              <div class="text">
-                <div class="mocp-rank col-xs-2">
-                  <h1>1</h1>
-                </div>
-                <div class="mocp-description-one mocp-description col-xs-6">
-                  <h5>Nickel, Richard<br>Gelatin silver print<br>n.d.</h5>
-                </div>
-                <div class="mocp-description col-xs-3">
-                  <h5>add a tag</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2 col-md-2 col-lg-2"></div>
-          <div class="image-two-container col-sm-5 col-md-5 col-lg-5">
-            <div class="mocp-image-two">
-              <div class="mocp-image-text">
-                <div class="head-text-two">
-                  <h5><strong>Auditorium Building, Chicago, Illinois</strong></h5>
-                </div>
-                <div class="line"></div>
-                <div class="body-text-two flip">
-                  <h5>Initial phases of collection research have yielded limited information about this artist. The artist or any knowledgeable parties are encouraged to contact the museum to provide or confirm biographical or historical details.</h5>
-                </div>
-              </div>
-              <img id="mocp-image-two" src="images/mocp-image-two.jpg" style="width:100%">
-            </div>
-            <div class="text">
-              <div class="mocp-rank col-xs-2">
-                <h1>2</h1>
-              </div>
-              <div class="mocp-description-two mocp-description col-xs-6">
-                <h5>Loginsky, A.<br>Gelatin silver print<br>n.d.</h5>
-              </div>
-              <div class="mocp-description col-xs-3">
-                <h5>add a tag</h5>
-              </div>
-            </div> 
-          </div>
-        </div>
-        <!-- footer -->
-        <div class="footer">
-          <h5>&#169; 2017 MoCP.me</h5>
+        <div class="description col-xs-8">
+          <h5>In 1980, the Museum of Contemporary Photography established a permanent collection and it is through this collection that the museum has been able to provide an invaluable research and educational resource to the general public and thousands of students. In 2009, the growing collection was digitized and made available online for free to the general public.
+          <br>
+          <br>
+          <strong>MoCP.me</strong> is a web application using computer vision and machine learning as a way to interact with the MoCP collection on user-generated terms.</h5> 
         </div>
       </div>
-      <div class="col-lg-1"></div>
     </div>
+
+    <!-- ~*~*~*~*~*~*~*~*~ image upload ~*~*~*~*~*~*~*~*~ -->
+    <div class="row images">
+      <div class="image-upload-mobile">
+        <!-- <div class="frame"></div> -->
+        <div class="spacer-top">
+          <div class="border"></div>
+        </div>
+        <div class="container-div container-div-uploaded">
+          <div class="reveal-image">
+            <div class="fixed-bg-wrap">
+              <div class="fixed-bg">
+                <img id="uploaded-image" class="uploaded-image image" src="" style="width:100%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-div container-div-upload-text">
+          <div class="reveal-image">
+            <div class="fixed-bg-wrap">
+              <div class="google-vision-tags">
+                <div id ="vision-tags"></div>
+              </div> 
+            </div>
+          </div>
+        </div>
+        
+        <div class="container-div mocp-image-one">
+          <div class="reveal-image">
+            <div class="fixed-bg-wrap">
+              <div class="fixed-bg">
+                <img id="mocp-image-one" class="uploaded-image image" src="images/mocp-image-one.jpg" style="width:100%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-div container-div-img-text">
+          <div class="reveal-image">
+            <div id="returned-text-one" class="fixed-bg-wrap return-text-hide">
+              <div class="returned-text">
+                <div id="text-title" class="head-text-one head-text">
+                  <strong>
+                    <h4>This Is A Title</h4>
+                  </strong>
+                </div>
+                <div class="body-text-one body-text">
+                  <div id="artist-one"><h4>Artist, Name</h4></div>
+                  <div id="more-info-one"><h5>more info <strong>&#8594;</strong></h5></div>
+                  <div class="line"></div>
+                  <div class="add-tag">
+                    <button id ="add-tag-one" type="button" class="btn" onclick="addTagOne()"><strong><h5>add tag</h5></strong></button>
+                  </div>
+                  <div id="tags-one" class="tags">
+                    <h5>#here_are #our_tags #architecture #black&amp;white #building #window #newBauhaus #Chicago #arch #facade #symmetry #bauhaus</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="fixed-bg">
+                <img id="mocp-image-one" class="uploaded-image image" src="images/mocp-image-one.jpg" style="width:100%">
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <!-- <div class="container-div mocp-image-two">
+          <div class="reveal-image">
+            <div class="fixed-bg-wrap">
+              <div class="fixed-bg">
+                <img class="uploaded-image image" src="images/mocp-image-two.jpg" style="width:100%">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-div container-div-img-text">
+          <div class="reveal-image">
+            <div id="returned-text-two" class="fixed-bg-wrap return-text-hide">
+              <div class="returned-text">
+                <div class="head-text-two head-text">
+                  <h4><strong>Auditorium
+                  <br>Building,
+                  <br>Chicago,
+                  <br>Illinois</strong></h4>
+                </div>
+                  <div id="artist-two"><h4>Loginsky, A.</h4></div>
+                  <div id="more-info-two arrow"><h5>more info <strong>&#8594;</strong></h5></div>
+                  <div class="line"></div>
+                  <div class="add-tag">
+                    <button id ="add-tag-two" type="button" class="btn" onclick="addTagTwo()"><strong><h5>add tag</h5></strong></button>
+                  </div>
+                  <div id="tags-two" class="tags">
+                    <h5>#architecture #black&amp;white #building #window #newBauhaus #Chicago #arch #facade #symmetry #bauhaus</h5>
+                  </div>
+              </div>
+              <div class="fixed-bg">
+                <img class="uploaded-image image" src="images/mocp-image-two.jpg" style="width:100%">
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="spacer-bottom">
+          <div class="border">
+            <h6><strong>#MoCPme</strong></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ~*~*~*~*~*~*~*~*~ footer ~*~*~*~*~*~*~*~*~ -->
+    <div class="row footer">
+      <div class="footer-logo">
+        <h5>#MoCPme</h5>
+      </div>
+      <div class="footer-maintext row">
+        <button class="btn-block footer-button">
+          <h5><strong>#get_social</strong></h5>
+          <div class="footer-subtext">
+            <h5>Share your results.</h5>
+          </div>
+        </button>
+        <button class="btn-block footer-button">
+          <h5><strong>#trending_tags</strong></h5>
+          <div class="footer-subtext">
+            <h5>See our trending tags.</h5>
+          </div>
+        </button>
+        <div id="about" class="button-wrapper">
+          <button class="btn-block footer-button">
+            <h5><strong>#about</strong></h5>
+            <div class="footer-subtext">
+              <h5>About the tagging project.</h5>
+            </div>
+          </button>
+        </div>
+      </div>
+      <br>
+      <div id="footer-line" class="footer-line-hide"></div>
+      <br>
+      <div class="subtext">
+        <div class="footer-extras bug-report">
+          <div class="row">
+            <div id="bug-report-title" class="col-xs-11">
+              <h5><strong>#report_bug</strong></h5>
+            </div>
+            <div class="col-xs-1">
+              <div id="bug-line" class="line"></div>
+            </div>
+          </div>
+          <div class="row footer-subtext bug-report-validation">
+            <h5>We are still in beta - help us find our bugs. &nbsp; &#8594; </h5>
+          </div>
+          <div class="text-validation">
+            <h5>Thank you for telling us about our bug.</h5>
+            <h5 style="opacity: .7">report another &nbsp; &#8594;</h5>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-footer">
+        <h6>&#9400; 2018 Museum of Contemporary Photography</h6>
+      </div>
+    </div>
+  </div>
   </div>
   <script type="text/javascript" src="js/style.js"></script>
   <script type="text/javascript" src="js/returnedImage.js"></script>
   <script type="text/javascript" src="js/imageupload.js"></script>
 </body>
 </html>
+
+
+
+
