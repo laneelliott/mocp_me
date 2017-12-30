@@ -154,33 +154,19 @@ function onScrollForUpload(){
 				$(".container-div-upload-text").addClass("vision-tags-on-scroll");
 			}
 
-			if (y_scroll_pos > uploadedImageHeight + (textHeight/3)){
+			if (y_scroll_pos > uploadedImageHeight + (textHeight/4)){
 				$("#returned-text-one").removeClass("return-text-hide");
 			}
-			if (y_scroll_pos < uploadedImageHeight + (textHeight/3)){
+			if (y_scroll_pos < uploadedImageHeight + (textHeight/4)){
 				$("#returned-text-one").addClass("return-text-hide");
 			}
 			// console.log(uploadedImageHeight + (textHeight/1.5));
-			if (y_scroll_pos > uploadedImageHeight + textHeight - (textHeight/10)){
+			if (y_scroll_pos > uploadedImageHeight + textHeight - (textHeight/1.75)){
 				$("#returned-text-one").addClass("return-text-hide");
 			}
-			if ((y_scroll_pos < uploadedImageHeight + textHeight - (textHeight/10)) && (y_scroll_pos > uploadedImageHeight + (textHeight/4))){
+			if ((y_scroll_pos < uploadedImageHeight + textHeight - (textHeight/1.75)) && (y_scroll_pos > uploadedImageHeight + (textHeight/4))){
 				$("#returned-text-one").removeClass("return-text-hide");
 			}
-
-			// if (y_scroll_pos > containerDivImageOne + uploadedImageHeight + (textHeight/4)){
-			// 	$("#returned-text-two").removeClass("return-text-hide");
-			// }
-			// if (y_scroll_pos < containerDivImageOne + uploadedImageHeight + (textHeight/4)){
-			// 	$("#returned-text-two").addClass("return-text-hide");
-			// }
-			// // console.log(uploadedImageHeight + (textHeight/1.5));
-			// if (y_scroll_pos > containerDivImageOne +uploadedImageHeight +textHeight+ (textHeight/20)){
-			// 	$("#returned-text-two").addClass("return-text-hide");
-			// }
-			// if ((y_scroll_pos < containerDivImageOne + uploadedImageHeight +textHeight+ (textHeight/20)) && (y_scroll_pos > containerDivImageOne + uploadedImageHeight + (textHeight/4))){
-			// 	$("#returned-text-two").removeClass("return-text-hide");
-			// }
 		});
 	}
 }
@@ -212,8 +198,6 @@ $("#file-button").on("click", function(){
 	}
 });
 
-// var imgOne = false;
-// var imgTwo = false;
 
 $(".mocp-image-one").on("click", function(){
 	$(".mocp-image-one").addClass("container-div-clicked");
@@ -223,13 +207,6 @@ $(".mocp-image-one").on("click", function(){
 	}, 500);
 });
 
-$(".mocp-image-two").on("click", function(){
-	$(".mocp-image-two").addClass("container-div-clicked");
-    $("#tags-two").removeClass("flip");
-    setTimeout(function(){
-		imgTwo = true;
-	}, 500);
-});
 
 function backArrowOne(){
 	setTimeout(function(){

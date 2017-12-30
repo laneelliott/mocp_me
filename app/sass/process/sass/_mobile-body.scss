@@ -18,7 +18,8 @@
 		.images{
 			background-color: $reallyLightGray !important;
 			// height:490vh !important; 
-			height:370vh !important; 
+			// height:370vh !important; 
+			height:400vh !important; 
 			width:100vw;
 			z-index: -100000000000;
 			// position:absolute !important;
@@ -173,10 +174,11 @@
 
 	.container-div-img-text{
 		z-index: -10000 !important;
-		height:120vh !important;
+		height:250vh !important;
 		.reveal-image{
 			.fixed-bg-wrap{
 				.returned-text{
+					margin-top:100vh !important;
 					z-index: 1 !important;
 					display: block;
 					position:absolute;
