@@ -155,10 +155,10 @@ function onScrollForUpload(){
 				$(".container-div-upload-text").addClass("vision-tags-on-scroll");
 			}
 
-			if (y_scroll_pos > uploadedImageHeight + (textHeight/4)){
+			if (y_scroll_pos > uploadedImageHeight + (textHeight/3)){
 				$("#returned-text-one").removeClass("return-text-hide");
 			}
-			if (y_scroll_pos < uploadedImageHeight + (textHeight/4)){
+			if (y_scroll_pos < uploadedImageHeight + (textHeight/3)){
 				$("#returned-text-one").addClass("return-text-hide");
 			}
 			// console.log(uploadedImageHeight + (textHeight/1.5));
@@ -194,19 +194,24 @@ function uploadFunction(){
 	onScrollForUpload();
 }
 
+var clicked = false; 
+
 $("#file-button").on("click", function(){
-	console.log('click')
-	intro = false;
-	$(".yellow-background-circle").css("background-color", "#E5B616");
-	$(".start-text").addClass("hide");
-	$("#fileInput").change(function(){
-		$("#intro").hide();
-		$("#upload").show();
-		setTimeout(function(){
-			sendUploadedImage($('#fileInput'));
-			uploadFunction();
-		},300);
-	});
+	if (clicked === false){
+		console.log('click');
+		clicked = true;
+		intro = false;
+		$(".yellow-background-circle").css("background-color", "#E5B616");
+		$(".start-text").addClass("hide");
+		$("#fileInput").change(function(){
+			$("#intro").hide();
+			$("#upload").show();
+			setTimeout(function(){
+				sendUploadedImage($('#fileInput'));
+				uploadFunction();
+			},300);
+		});
+	}
 });
 
 // var imgOne = false;
