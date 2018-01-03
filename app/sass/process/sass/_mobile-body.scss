@@ -1,10 +1,13 @@
 @media screen and (max-width: $small) {
 	#upload{
-		-webkit-overflow-scrolling: touch;
+		-webkit-overflow-scrolling: touch !important;
 		.row{
 			margin:0px !important;
 		}
 		.intro{
+			.logo-upright{
+				display:none;
+			}
 			z-index: 100000000;
 			position:absolute;
 			background-color: $darkGray;
@@ -19,12 +22,14 @@
 			background-color: $reallyLightGray !important;
 			// height:490vh !important; 
 			// height:370vh !important; 
+			-webkit-overflow-scrolling: touch !important;
 			height:400vh !important; 
 			width:100vw;
 			z-index: -100000000000;
 			// position:absolute !important;
 		}
 		.description-mobile-container{
+			-webkit-overflow-scrolling: touch !important;
 			.logo-sideways{
 				color:white;
 				height:300px;
@@ -95,12 +100,14 @@
 							-webkit-transition:all .6s ease-out;
 							.image{
 								@include imageDiv;
+								width:100%;
 								transition:all .3s linear;
 								-webkit-transition:all .6s ease-out;
 							}
 						}
 					}
 					.google-vision-tags{
+						-webkit-overflow-scrolling: touch !important;
 						h5{
 							color: white !important;
 							margin:1.5vh;
@@ -275,37 +282,6 @@
 		}
 	}
 }
-
-
-@media screen and (min-width: $small) {
-	#upload{
-		.intro{
-			display:none;
-			.description-mobile-container{
-				// width: 50vw;
-			}
-		}
-		.images{
-				display:none;
-			.container-div-uploaded{
-				
-			}
-			.container-div-upload-text{
-				
-			}
-			.mocp-image-one{
-				
-			}
-			.mocp-image-two{
-				
-			}
-		}
-		.footer{
-			display:none !important;
-		}
-	}
-}
-
 
 
 
