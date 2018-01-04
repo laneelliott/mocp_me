@@ -9,7 +9,7 @@
 		z-index: -1000000000000000000 !important;
 		.intro{
 			// z-index:100000000000000000000000000000000000000000000000 !important;
-			background-color: $darkGray !important;
+			background-color: black !important;
 			padding:3vh;
 			padding-left:5vw;
 			// padding-left: 30%;
@@ -47,7 +47,7 @@
 				background-color: $offwhite; 
 			}
 			.container-div-uploaded{
-				background-color: $reallyLightGray !important;
+				background-color: white !important;
 				z-index: -1000000000000 !important;
 				position:absolute;
 				width:100vw;
@@ -103,12 +103,12 @@
 						// left:45vw;
 						right:8vw;
 						position:absolute;
-						background-color: rgba(64,64,64, .95);
+						background-color: rgba(0,0,0, .85);
 						width:42vw;
 						height:25vh;
 						z-index: -10 !important;
 						position:fixed;
-						border: solid $darkGray;
+						border: solid black;
 						border-width: .4vw;
 						text-align: center; 
 						padding:2vh;
@@ -160,7 +160,7 @@
 					.returned-text{
 						// display: none;
 						z-index: -1000000000 !important;
-						background-color: black;
+						background-color: $darkGray;
 						position:absolute;
 						display: block;
 					  	margin-top:100vh;
@@ -175,7 +175,7 @@
 					  	height:140vh !important;
 					  	.btn{
 					  		border-radius: 1px !important;
-					  		border-width: 1px;
+					  		border-width: 1px !important;
 					  		border-top: $offwhite solid;
 					  		background:none;
 					  		margin-top: 20px;
@@ -204,8 +204,8 @@
 		.footer{
 			z-index: 1000000000000000000000000000000000000 !important;
 			@include clearfix;
-			margin-top:315vh;
-			background-color: $lightGray;
+			margin-top:314vh;
+			background-color: black;
 			height:105vh !important;
 			width:100vw;
 			.footer-maintext{
@@ -215,8 +215,8 @@
 				padding-top:10vh;
 				.btn-block{
 					border-radius:2px;
-					background-color: $lightGray;
-					border-bottom: solid $darkGray;
+					background-color: black;
+					border-bottom: solid $darkYellow;
 					border-width:1px;
 					border-left:none;
 					border-right:none;
@@ -231,8 +231,11 @@
 				.footer-button:hover{
 					margin-left:0vw;
 					width:32vw;
-					background-color: $darkGray;
-					color: $offwhite;
+					background-color: $darkYellow;
+					color: black;
+					.footer-subtext{
+						color:$darkGray !important;
+					}
 				}
 			}
 			.subtext{
@@ -242,6 +245,7 @@
 				width:100vw;
 				margin-top: 35vh;
 				margin-left:10vw;
+				color: $reallyLightGray;
 			}
 		}
 	}
