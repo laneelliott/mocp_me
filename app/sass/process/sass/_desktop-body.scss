@@ -47,7 +47,7 @@
 				background-color: $offwhite; 
 			}
 			.container-div-uploaded{
-				background-color: white !important;
+				background-color: $reallyLightGray !important;
 				z-index: -1000000000000 !important;
 				position:absolute;
 				width:100vw;
@@ -255,8 +255,11 @@
 	#upload{
 		overflow-x: hidden;
 		// display: none;
+		height:445vh;
 		.intro{
-			
+			padding:5vh;
+			padding-left:10vw;
+			padding-right:10vw;
 			.logo-sideways{
 				// display: none;
 			}
@@ -276,7 +279,16 @@
 
 			}
 			.container-div-upload-text{
-				
+				.reveal-image{
+					.fixed-bg-wrap{ 
+						width:23vw;
+						right:21vw;
+						.google-vision-tags{
+							h5{
+							}
+						}
+					}
+				}
 			}
 			.container-div-uploaded{
 				.reveal-image{
@@ -284,7 +296,7 @@
 					.fixed-bg-wrap{
 						
 						.fixed-bg{
-							// left:20vw;
+							left:10vw;
 							.image{
 								// @include imageDiv;
 								// z-index: -10000000000 !important;
@@ -301,21 +313,29 @@
 					.fixed-bg-wrap{
 						
 						.fixed-bg{
-							
+							right:20vw;
 							.image{
-								
+								width:23vw !important;
 							}
 						}
 					}
 					.returned-text{
-						// margin-left:21vw !important;
+						padding-top:40vh !important;
+						padding-left:21vw !important;
 						// width:23vw !important;
 					}
 				}
 			}
 		}
 		.footer{
-			// display:none !important;
+			margin-top:313vh;
+			height:105vh !important;
+			.footer-maintext{
+				padding-top: 15vh;
+			}
+			.bottom-footer{
+				margin-top: 25vh;
+			}
 		}
 	}
 }
