@@ -1,12 +1,4 @@
 
-// function getTags(allTagsFromID) {
-//     $.get("/api/return-all-tags-from-id/"+allTagsFromID, function(data) {
-//     	for (i = 0; i< data.length; i++){
-//     		console.log("success" + data[i].tag_name);
-//     		$("#tags-one").append("# " +data[i].tag_name + " ");
-//     	}
-//     });
-// }
 
 function getURL(tag) {
     $.get("/api/tags/"+tag, function(data) {
@@ -28,8 +20,16 @@ function getURL(tag) {
 
 }
 
-getURL("tag-one");
-// getTags("1");
+// ~~~~~~~~~~~~~~~~~~~~ Dont worry about this - Amanda ~~~~~~~~~~~~~~~~~~~~~
+// function submitPost(post) {
+// 	$.post("/api/new-hashtags", post, function() {
+//   		db.Hashtags.create(req.body).then(function(dbHashtags) {
+//     	  res.json(dbHashtags);
+//     	});
+// 	});
+// }
 
-// Uncomment this to run the function on page load for testing.
-//getURL();
+// submitPost("hello world");
+// ~~~~~~~~~~~~~~~~~~~~ Dont worry about this - Amanda ~~~~~~~~~~~~~~~~~~~~~
+
+getURL("tag-one");
