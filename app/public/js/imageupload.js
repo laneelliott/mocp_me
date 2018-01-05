@@ -64,13 +64,17 @@ function sendFiletoCloudVision(file){
         "Content-Type": "application/json",
       },
       success: function(data, textStatus, jqXHR) {
+        var tagString = [];
+        for(var i = 0; i < data.responses[0].labelAnnotations.length; i++){
+          //tagString.push
+        }
         for (var i=0;i<3;i++){
           if (data.responses[0].labelAnnotations[i] !== undefined){
             console.log(data.responses[0].labelAnnotations[i].description);
             $('#vision-tags').append("<h5>" + data.responses[0].labelAnnotations[i].description + "</h5>");
           }
         }
-        // getURL(data.responses[0].labelAnnotations[0].description);
+        getURL(data.responses[0].labelAnnotations[0].description);
         //console.log(textStatus)
         //console.log(jqXHR)
       },
