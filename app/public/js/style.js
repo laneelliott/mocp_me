@@ -173,10 +173,12 @@ function onScrollForUpload(){
 
 
 function uploadFunction(){
-	// $(".loader").hide();
-	// $(".main-return").removeClass("hide");
-	resizeMainReturn();
-	onScrollForUpload();
+	setTimeout(function(){
+		$(".loader").hide();
+		$("#upload").show();
+		resizeMainReturn();
+		onScrollForUpload();
+	},3000);
 }
 
 var clicked = false; 
@@ -189,7 +191,8 @@ $("#file-button").on("click", function(){
 		$(".start-text").addClass("hide");
 		$("#fileInput").change(function(){
 			$("#intro").hide();
-			$("#upload").show();
+			// $("#upload").show();
+			$(".loader").show();
 			setTimeout(function(){
 				sendUploadedImage($('#fileInput'));
 				uploadFunction();
