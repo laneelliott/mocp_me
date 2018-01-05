@@ -5,7 +5,7 @@
 		}
 		background:none;
 		overflow-x: hidden;
-		height:455vh;
+		height:465vh;
 		z-index: -1000000000000000000 !important;
 		.intro{
 			// z-index:100000000000000000000000000000000000000000000000 !important;
@@ -204,15 +204,15 @@
 		.footer{
 			z-index: 1000000000000000000000000000000000000 !important;
 			@include clearfix;
-			margin-top:314vh;
+			margin-top:300vh !important;
 			background-color: black;
-			height:105vh !important;
+			height:500vh !important;
 			width:100vw;
 			.footer-maintext{
 				margin-right:34vw;
 				margin-left:34vw;
 				width:28vw;
-				padding-top:10vh;
+				padding-top:30vh !important;
 				.btn-block{
 					border-radius:2px;
 					background-color: black;
@@ -242,10 +242,18 @@
 				display:none !important;
 			}
 			.bottom-footer{
+				position:relative;
 				width:100vw;
-				margin-top: 35vh;
-				margin-left:10vw;
-				color: $reallyLightGray;
+				top:-5vh !important;
+				padding-left:10vw;
+				color: $lightGray;
+				padding-top:25vh;
+				background-color:black; 
+				padding-bottom:20vh;
+				h6{
+					margin:0;
+					padding:0;
+				}
 			}
 		}
 	}
@@ -334,7 +342,7 @@
 				padding-top: 15vh;
 			}
 			.bottom-footer{
-				margin-top: 25vh;
+				padding-top:30vh;
 			}
 		}
 	}
