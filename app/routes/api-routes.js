@@ -31,6 +31,17 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/return-all-tags-from-id/:photo_id", function(req, res) {
+    db.Tags.findAll({
+      where: {
+        photo_id: req.params.photo_id
+      }
+    }).then(function(dbTags) {
+      res.json(dbTags);
+    });
+  });
+
+
 
 // *****STUFF HOLLY ADDED STARTS HERE****** //
   // If a user sends data to add a new hashtag...
