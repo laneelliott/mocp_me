@@ -1,4 +1,6 @@
 var db = require("../models");
+// ***ADDED BY HOLLY****
+var Hashtags = require("../models/mocptags.js");
 
 
 // Routes
@@ -30,26 +32,24 @@ module.exports = function(app) {
   });
 
 
-  // If a user sends data to add a new Photo...
+// *****STUFF HOLLY ADDED STARTS HERE****** //
+  // If a user sends data to add a new hashtag...
   app.post("/api/new", function(req, res) {
 
     // console.log(req);
     // console.log(res);
-    // // Take the request...
-    // var Photos = req.body;
+    // Take the request...
+    var tags = req.body;
 
-    // // Create a routeName
-    // var routeName = Photos.name.replace(/\s+/g, "").toLowerCase();
+    // Create a routeName
+    var routeName = tags.name.replace(/\s+/g, "").toLowerCase();
 
-    // // Then add the Photos to the database using sequelize
-    // Photos.create({
-    //   routeName: routeName,
-    //   name: Photos.name,
-    //   path: Photos.path,
-    //   web_path: Photos.web_path,
-    //   artist_id: Photos.artist_id
-    // });
-
+    // Then add the hashtags to the database using sequelize
+    Hashtags.create({
+      routeName: routeName,
+      tag_name: tags.tag_name,
+    });
+// ****STUFF HOLLY ADDED ENDS HERE ****** //
   });
 
 };
