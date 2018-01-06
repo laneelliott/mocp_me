@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>MoCP.me</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -60,11 +60,18 @@
     </div>
   </div>
 
+  <!-- ~*~*~*~*~*~*~*~*~ loader  ~*~*~*~*~*~*~*~*~ -->
+  <div class="loader">
+    <div class="loader-animation"></div>
+  </div>
+
+  <!-- ~*~*~*~*~*~*~*~*~ main return ~*~*~*~*~*~*~*~*~ -->
   <div id="upload" class="main-body">
     <div class="row intro" style="margin:0px">
-
-      <!-- ~*~*~*~*~*~*~*~*~ description ~*~*~*~*~*~*~*~*~ -->
       <div class="description-mobile-container">
+        <div class="logo-upright col-xs-4">
+          <img id ="logo-upright" src="images/logo.png" style="width:100%">
+        </div>
         <div class="logo-sideways col-xs-4">
           <img id="logo-sideways" src="images/logo-sideways.png" style="height:100%">
         </div>
@@ -76,11 +83,8 @@
         </div>
       </div>
     </div>
-
-    <!-- ~*~*~*~*~*~*~*~*~ image upload ~*~*~*~*~*~*~*~*~ -->
     <div class="row images">
       <div class="image-upload-mobile">
-        <!-- <div class="frame"></div> -->
         <div class="spacer-top">
           <div class="border"></div>
         </div>
@@ -102,79 +106,41 @@
             </div>
           </div>
         </div>
-        
-        <div class="container-div mocp-image-one">
-          <div class="reveal-image">
-            <div class="fixed-bg-wrap">
-              <div class="fixed-bg">
-                <img id="mocp-image-one" class="uploaded-image image" src="images/mocp-image-one.jpg" style="width:100%">
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="container-div container-div-img-text">
           <div class="reveal-image">
             <div id="returned-text-one" class="fixed-bg-wrap return-text-hide">
               <div class="returned-text">
                 <div id="text-title" class="head-text-one head-text">
                   <strong>
-                    <h4>This Is A Title</h4>
+                    <h4>
+                      <div id="photo-name"></div>
+                    </h4>
                   </strong>
                 </div>
                 <div class="body-text-one body-text">
-                  <div id="artist-one"><h4>Artist, Name</h4></div>
+                  <div id="artist-one">
+                    <h4>
+                      <div id="artist-name"></div>
+                    </h4>
+                  </div>
                   <div id="more-info-one"><h5>more info <strong>&#8594;</strong></h5></div>
                   <div class="line"></div>
                   <div class="add-tag">
                     <button id ="add-tag-one" type="button" class="btn" onclick="addTagOne()"><strong><h5>add tag</h5></strong></button>
                   </div>
-                  <div id="tags-one" class="tags">
-                    <h5>#here_are #our_tags #architecture #black&amp;white #building #window #newBauhaus #Chicago #arch #facade #symmetry #bauhaus</h5>
+                  <div class="tags">
+                    <h5>
+                      <div id="tags-one"></div>
+                    </h5>
                   </div>
                 </div>
               </div>
               <div class="fixed-bg">
-                <img id="mocp-image-one" class="uploaded-image image" src="images/mocp-image-one.jpg" style="width:100%">
+                <img id="mocp-image-one" class="uploaded-image image" src="images/default-image.jpg" style="">
               </div>
             </div>
           </div>
         </div>
-       
-        <!-- <div class="container-div mocp-image-two">
-          <div class="reveal-image">
-            <div class="fixed-bg-wrap">
-              <div class="fixed-bg">
-                <img class="uploaded-image image" src="images/mocp-image-two.jpg" style="width:100%">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-div container-div-img-text">
-          <div class="reveal-image">
-            <div id="returned-text-two" class="fixed-bg-wrap return-text-hide">
-              <div class="returned-text">
-                <div class="head-text-two head-text">
-                  <h4><strong>Auditorium
-                  <br>Building,
-                  <br>Chicago,
-                  <br>Illinois</strong></h4>
-                </div>
-                  <div id="artist-two"><h4>Loginsky, A.</h4></div>
-                  <div id="more-info-two arrow"><h5>more info <strong>&#8594;</strong></h5></div>
-                  <div class="line"></div>
-                  <div class="add-tag">
-                    <button id ="add-tag-two" type="button" class="btn" onclick="addTagTwo()"><strong><h5>add tag</h5></strong></button>
-                  </div>
-                  <div id="tags-two" class="tags">
-                    <h5>#architecture #black&amp;white #building #window #newBauhaus #Chicago #arch #facade #symmetry #bauhaus</h5>
-                  </div>
-              </div>
-              <div class="fixed-bg">
-                <img class="uploaded-image image" src="images/mocp-image-two.jpg" style="width:100%">
-              </div>
-            </div>
-          </div>
-        </div> -->
         <div class="spacer-bottom">
           <div class="border">
             <h6><strong>#MoCPme</strong></h6>
@@ -182,8 +148,6 @@
         </div>
       </div>
     </div>
-
-    <!-- ~*~*~*~*~*~*~*~*~ footer ~*~*~*~*~*~*~*~*~ -->
     <div class="row footer">
       <div class="footer-logo">
         <h5>#MoCPme</h5>
