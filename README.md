@@ -36,6 +36,22 @@ in your command line to get everything up and running!
 ...carefully
 
 
+## Potential Answers to Unlikely Questions
+
+#### How was the database created?
+The Museum of Contemporary Photography supplied us with an external hard drive of their entire collection of works. This hard drive contained nearly 7,000 folders named after particular artists which contained word documents, pdfs, and images.
+
+In order for us to get a working database for this project we needed to sift through what was given to us and create a MySql database that contained only images. We created a node program that utilized both the mysql and fs (file system) node packages to read the data from the hard drive. Our first application sifted through each folder and write the name of that folder and the path to that folder to our artists database in MySql.
+
+Once we had each of the artist folder paths in a database we then used a second node program that utilizes the previously made database folder paths to sift through each folder and pull out all the images in each folder and ignoring all of the extra files within each folder. Once this was completed we had a new table with the photo name, a foreign key for which folder it was found in and the image path. This gave us a MySql table with around 21,000 images in it.
+
+Once this new table was completed we wrote a third node application to query all of our image paths and copy each of them into their own folder. This gave us a single folder with 21,000 images inside of it.
+
+The next problem we ran into was how to make each of these images publicly accesible to users of our application. We elected to use the Google Cloud Platform storage to upload each of these images to. We attempted to upload all of these images into a bucket on Google Cloud Platform through the browser, but unfortunetly each time it crashed the browser. We had to utilize the Google Cloud Platform Shell Terminal to upload each image into our bucket. Next we used the terminal to give each of these images a public URL which is an option within the Google Cloud Platform bucket storage system. 
+
+We 
+
+
 
 ## Contributors
 
