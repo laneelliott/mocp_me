@@ -49,7 +49,11 @@ Once this new table was completed we wrote a third node application to query all
 
 The next problem we ran into was how to make each of these images publicly accesible to users of our application. We elected to use the Google Cloud Platform storage to upload each of these images to. We attempted to upload all of these images into a bucket on Google Cloud Platform through the browser, but unfortunetly each time it crashed the browser. We had to utilize the Google Cloud Platform Shell Terminal to upload each image into our bucket. Next we used the terminal to give each of these images a public URL which is an option within the Google Cloud Platform bucket storage system. 
 
-We 
+We then looked at a sample of the public urls and took the base url so that we can add it to our photos table. We then created another node application to query all of the images and write a new column into the table that added the base url from our Google Cloud Platform bucket and added the file name to finally give us a table that has each image with a url that can be accessed publicly from the web.
+
+#### How were the tags added to each image in the database
+
+Once we had our table with public urls we then had to create another node application that utilized the google vision node package that we use to reverse image search each image. This application queried each image and sent an api request to Google to return the relevant tags. Each time a tag was returned we wrote that data to a new MySql table that had the tag name and a foreign key that tied that tag back to the image id that it represents. We added some for loops in our application and let it run for nearly 6 hours. Once if finally completed we had a new sql table witch hundreds of thousands of searchable tags that can be joined to photos table to return a public image from the database.
 
 
 
