@@ -39,6 +39,56 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/get-tags/:array_string", function(req, res) {
+    console.log("\n------------------------------------------")
+
+    var array = req.params.array_string;
+    array = array.split(',');
+    console.log(array);
+
+    db.Tags.findAll({
+      where: {
+        tag_name: array
+      }
+    }).then(function(Tags) {
+      // Creates an array of all the photo_id
+      var photoArray = [];
+      for (let i = 0; i < Tags.length; i++){
+        photoArray.push(Tags[i].photo_id)
+      }
+      // Finds the function that was returned the most.
+      function mode(array) {
+          if(array.length == 0)
+              return null;
+          var modeMap = {};
+          var maxEl = array[0], maxCount = 1;
+          for(var i = 0; i < array.length; i++)
+          {
+              var el = array[i];
+              if(modeMap[el] == null)
+                  modeMap[el] = 1;
+              else
+                  modeMap[el]++;  
+              if(modeMap[el] > maxCount)
+              {
+                  maxEl = el;
+                  maxCount = modeMap[el];
+              }
+          }
+          return maxEl;
+      }
+      db.Photos.findAll({
+        where: {
+          id: mode(photoArray)
+        }
+      }).then(function(photoId){
+        res.json(photoId);
+      });
+      //console.log(mode(photoArray))
+    })
+    
+  });
+
 // ~~~~~~~~~~~~~~~~~~~~ Dont worry about this - Amanda ~~~~~~~~~~~~~~~~~~~~~
   // app.get("/api/new-hashtags", function(req, res) {
   //   console.log(req.body);

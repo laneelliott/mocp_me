@@ -65,27 +65,23 @@ function sendFiletoCloudVision(file){
       },
       success: function(data, textStatus, jqXHR) {
 
-        console.log(data.responses[0].labelAnnotations);
+        var tagsArray = [];
         for (var i = 0; i < data.responses[0].labelAnnotations.length; i++){
-          console.log(data.responses[0].labelAnnotations[i].description);
-        }
-        
-        //getURL(data.responses[0].labelAnnotations[0].description);
-
-        var tagString = [];
-        for(var i = 0; i < data.responses[0].labelAnnotations.length; i++){
-          //tagString.push
+          //console.log(data.responses[0].labelAnnotations[i].description);
+          tagsArray.push(data.responses[0].labelAnnotations[i].description);
         }
 
+
+        // Prints the top three uploaded image tags to the html
         for (var i=0;i<3;i++){
           if (data.responses[0].labelAnnotations[i] !== undefined){
-            console.log(data.responses[0].labelAnnotations[i].description);
+            //console.log(data.responses[0].labelAnnotations[i].description);
             $('#vision-tags').append("<h5>" + data.responses[0].labelAnnotations[i].description + "</h5>");
           }
         }
-        getURL(data.responses[0].labelAnnotations[0].description);
-        //console.log(textStatus)
-        //console.log(jqXHR)
+        //Gets the image for the top tag.
+        //getURL(data.responses[0].labelAnnotations[0].description);
+        getURL(tagsArray)
       },
       error: function(jqXHR, textStatus, errorThrown) {
         console.log(jqXHR);
