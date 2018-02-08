@@ -5,7 +5,7 @@ USE mocp_db;
 
 DROP TABLE IF EXISTS artists;
 
-CREATE TABLE artists  (
+CREATE TABLE Artists  (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
   path VARCHAR(255) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE artists  (
 
 DROP TABLE IF EXISTS photos;
 
-CREATE TABLE photos  (
+CREATE TABLE Photos  (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
   path VARCHAR(300) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE photos  (
 
 DROP TABLE IF EXISTS tags;
 
-CREATE TABLE tags  (
+CREATE TABLE Tags  (
   id INT NOT NULL AUTO_INCREMENT,
   tag_name VARCHAR(100) NOT NULL,
   photo_id INT,
