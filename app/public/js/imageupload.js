@@ -12,8 +12,9 @@ var api_key = 'AIzaSyBY93fja8yxM9not6Nrd2v6NsRgNpJ4ZvM';
 //Encodes the new base 64img
 function processFile(event) {
   var encodedFile = event.target.result;
-  // console.log(encodedFile);
+  //console.log(encodedFile);
   sendFiletoCloudVision(encodedFile);
+
 }
 
 
@@ -81,6 +82,7 @@ function sendFiletoCloudVision(file){
         }
         //Gets the image for the top tag.
         //getURL(data.responses[0].labelAnnotations[0].description);
+        //console.log(tagsArray)
         getURL(tagsArray)
       },
       error: function(jqXHR, textStatus, errorThrown) {

@@ -43,8 +43,9 @@ module.exports = function(app) {
     console.log("\n------------------------------------------")
 
     var array = req.params.array_string;
+    console.log(array)
     array = array.split(',');
-    console.log(array);
+    //console.log(array);
 
     db.Tags.findAll({
       where: {
